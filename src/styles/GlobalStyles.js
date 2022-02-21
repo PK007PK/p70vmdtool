@@ -22,6 +22,10 @@ html {
     --bs: 0 12px 24px 0 rgba(0,0,0,0.99);
     --mainWidth: 350px;
     --mainTextColor: #ECEFF1;
+    --colorBankKey: #004D40;
+    --colorBankAccount: #827717;
+    --colorOk: #388E3C;
+    --colorProblem: #E65100;
     
     box-sizing: border-box;
     font-size: 10px;

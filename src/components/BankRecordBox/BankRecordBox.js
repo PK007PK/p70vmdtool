@@ -1,7 +1,8 @@
 import { useCallback, useContext, useState } from "react";
 import { AppContext } from "AppContext";
 import { BankRecordDetails } from "types/BankRecordDetails";
-import { Button } from "components/Button/Button";
+import { BankDetailsItem } from "components/BankDetailsItem/BankDetailsItem";
+import { BankRecordBoxStyle } from "./BankRecordBox.style";
 
 export const BankRecordBox = ({i = 0}) => {
     
@@ -27,10 +28,17 @@ export const BankRecordBox = ({i = 0}) => {
     };
    
   return (
-    <div>
+    <BankRecordBoxStyle>
       {Object.entries(doc)
         .filter(item => item[0] in BankRecordDetails)
-        .map(([key,value]) => <Button key={key} element={key} value={value} handleClick={handleClick}/>)
+        .map(([key,value]) => 
+          <BankDetailsItem 
+            key={key} 
+            element={key} 
+            value={value} 
+            handleClick={handleClick}
+          />
+        )
       }
-    </div>
+    </BankRecordBoxStyle>
   )}
