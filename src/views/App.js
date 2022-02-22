@@ -1,11 +1,13 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import AppProvider from '../AppContext';
-import Layout from 'components/Layout/Layout';
 import GlobalStyles from 'styles/GlobalStyles';
 import theme from 'assets/Theme';
-import { TitleBar } from 'components/TitleBar/TitleBar';
-import { BankRecordBox } from 'components/BankRecordBox/BankRecordBox';
+
+
+import Layout from 'components/atoms/Layout/Layout';
+import { TitleBar } from 'components/atoms/TitleBar/TitleBar';
+import { BankRecordBox } from 'components/organisms/BankRecordBox/BankRecordBox';
 
 function App() {
   return (
@@ -15,11 +17,6 @@ function App() {
         <Layout>
           <TitleBar />
           <BankRecordBox i={0}/>
-          {/* <MainBankDetails /> */}
-          {/* <BlockOfButtons name={"Bank key"}/>
-          <BlockOfButtons name={"Account number"}/>
-          <BlockOfButtons name={"IBAN"}/>
-          <BlockOfButtons name={"SWIFT"}/> */}
         </Layout>
       </ThemeProvider>
     </AppProvider>

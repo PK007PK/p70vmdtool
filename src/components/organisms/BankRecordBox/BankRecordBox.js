@@ -1,8 +1,9 @@
 import { useCallback, useContext, useState } from "react";
 import { AppContext } from "AppContext";
 import { BankRecordDetails } from "types/BankRecordDetails";
-import { BankDetailsItem } from "components/BankDetailsItem/BankDetailsItem";
+
 import { BankRecordBoxStyle } from "./BankRecordBox.style";
+import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
 
 export const BankRecordBox = ({i = 0}) => {
     

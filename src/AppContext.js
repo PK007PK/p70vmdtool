@@ -16,12 +16,3 @@ return (
 };
 
 export default AppProvider;
-
-// const initialValues = {
-//   bankKey: ["-", "-", "-", "-"],
-//   account: ["-", "-", "-", "-"],
-//   iban: ["-", "-", "-", "-"],
-//   swift: ["-", "-", "-", "-"],
-// }
-// const [bankDetails, setBankDetails] = useState(initialValues);
-// const updateBD = (position, value) => setBankDetails({...bankDetails, [position]: value});

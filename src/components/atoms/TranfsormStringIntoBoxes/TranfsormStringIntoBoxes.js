@@ -1,8 +1,8 @@
 import { AppContext } from "AppContext";
 import { useContext } from "react";
-import { StyledSpan } from "./DisplayDetails.style";
+import { StyledSpan } from "./TranfsormStringIntoBoxes.style";
 
-export const DisplayDetails = ({details = ['-'], element}) => {
+export const TranfsormStringIntoBoxes = ({details = ['-'], element}) => {
     const {
         doc
        } = useContext(AppContext);
