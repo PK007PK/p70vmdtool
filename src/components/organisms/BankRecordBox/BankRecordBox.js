@@ -4,6 +4,7 @@ import { BankRecordDetails } from "types/BankRecordDetails";
 
 import { BankRecordBoxStyle } from "./BankRecordBox.style";
 import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
+import { DocumentTypeChange } from "components/atoms/DocumentTypeChange/DocumentTypeChange";
 
 export const BankRecordBox = ({i = 0}) => {
     
@@ -30,6 +31,7 @@ export const BankRecordBox = ({i = 0}) => {
    
   return (
     <BankRecordBoxStyle>
+      <DocumentTypeChange className="docTypeChanger" />
       {Object.entries(doc)
         .filter(item => item[0] in BankRecordDetails)
         .map(([key,value]) => 
