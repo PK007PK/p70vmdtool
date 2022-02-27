@@ -4,16 +4,15 @@ import { CompareToMainFinancialSystemStyle } from "./CompareToMainFinancialSyste
 
 export const CompareToMainFinancialSystem = ({title}) => {
     const {
-        doc
+        bankRecord
     } = useContext(AppContext);
 
     const [, updateState] = useState();
 
-    useEffect(() => updateState(),[doc]);
-    console.log(doc.documentType);
+    useEffect(() => updateState(),[bankRecord]);
     
     return (
         <CompareToMainFinancialSystemStyle>
-            <h3 className="title">Compare {title} to {doc.documentType}</h3>
+            <h3 className="title">Compare {title} to {bankRecord.documentType}</h3>
         </CompareToMainFinancialSystemStyle>
     )}

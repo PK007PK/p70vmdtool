@@ -1,4 +1,3 @@
-import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import AppProvider from '../AppContext';
 import GlobalStyles from 'styles/GlobalStyles';

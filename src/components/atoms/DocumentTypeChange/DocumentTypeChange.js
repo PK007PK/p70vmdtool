@@ -5,16 +5,16 @@ import { DocumentTypeChangeStyle } from "./DocumentTypeChangeStyle";
 
 export const DocumentTypeChange = ({className}) => {
     const {
-        doc
+        bankRecord
     } = useContext(AppContext);
     
-    const [type, setType] = useState(doc.documentType);
+    const [type, setType] = useState(bankRecord.documentType);
 
     const handleClick = () => {
-        doc.documentType === "SAP" ? 
-            doc.insert("documentType", DocumentsBase.Cfin) :
-            doc.insert("documentType", DocumentsBase.Sap);
-        setType(doc.documentType);
+        bankRecord.documentType === "SAP" ? 
+        bankRecord.insert("documentType", DocumentsBase.Cfin) :
+        bankRecord.insert("documentType", DocumentsBase.Sap);
+        setType(bankRecord.documentType);
     }
 
     return (

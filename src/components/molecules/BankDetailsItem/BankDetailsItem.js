@@ -6,7 +6,7 @@ import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
 
 export const BankDetailsItem = ({element, handleClick, value}) => {
     const {
-        doc
+        doc, bankRecord
        } = useContext(AppContext);
 
     let title;
@@ -27,7 +27,7 @@ export const BankDetailsItem = ({element, handleClick, value}) => {
             break;
     }
 
-    const {bankAccountDetected, bankKeyDetected} = doc.detectInIban()
+    const {bankAccountDetected, bankKeyDetected} = bankRecord.detectInIban()
 
     return (
         <BankDetailsItemStyle>

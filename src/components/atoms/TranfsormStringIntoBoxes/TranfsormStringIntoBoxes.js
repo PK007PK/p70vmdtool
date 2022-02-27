@@ -4,7 +4,7 @@ import { StyledSpan } from "./TranfsormStringIntoBoxes.style";
 
 export const TranfsormStringIntoBoxes = ({details = ['-'], element}) => {
     const {
-        doc
+        bankRecord
        } = useContext(AppContext);
 
     const {
@@ -12,7 +12,7 @@ export const TranfsormStringIntoBoxes = ({details = ['-'], element}) => {
         bankKeyPosition: {start: bankKeyStart, end: bankKeyEnd}, 
         bankKeyDetected, 
         bankAccountPosition: {start: bankAccountStart, end: bankAccountEnd},
-    } = doc.detectInIban()
+    } = bankRecord.detectInIban()
 
     return (
         <>

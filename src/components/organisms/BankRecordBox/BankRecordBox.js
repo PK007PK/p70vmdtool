@@ -7,23 +7,19 @@ import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetail
 import { DocumentTypeChange } from "components/atoms/DocumentTypeChange/DocumentTypeChange";
 
 export const BankRecordBox = ({i = 0}) => {
-    
-  const [, updateState] = useState();
 
   const {
-       doc
+       bankRecord, forceUpdate
       } = useContext(AppContext);
-  
-  const forceUpdate = useCallback(() => updateState({}), []);
 
+  console.log(bankRecord);
   const handleClick = (e) => {
-    console.log(e);
       navigator.clipboard.readText()
         .then(text => {
           if (text === "") {
             return;
           }
-          doc.insert(e.target.id, text.toString());
+          bankRecord.insert(e.target.id, text.toString());
           forceUpdate(); 
         })
       navigator.clipboard.writeText("");
@@ -32,7 +28,7 @@ export const BankRecordBox = ({i = 0}) => {
   return (
     <BankRecordBoxStyle>
       <DocumentTypeChange className="docTypeChanger" />
-      {Object.entries(doc)
+      {Object.entries(bankRecord)
         .filter(item => item[0] in BankRecordDetails)
         .map(([key,value]) => 
           <BankDetailsItem 
