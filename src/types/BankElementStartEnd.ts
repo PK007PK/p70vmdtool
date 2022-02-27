@@ -1,0 +1,1 @@
+export type BankElementStartEnd = { start: string  | number, end: string  | number};

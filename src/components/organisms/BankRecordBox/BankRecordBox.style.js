@@ -4,10 +4,11 @@ export const BankRecordBoxStyle = styled.div`
     border: 1px solid black;
     max-width: 386px;
     position: relative;
+    padding: var(--componentsPaddings);
 
     .docTypeChanger {
         position: absolute;
         top: -25px;
-        left: 25px;
+        left: 0;
     }
 `

@@ -18,9 +18,7 @@ export const DocumentTypeChange = ({className}) => {
     }
 
     return (
-        <DocumentTypeChangeStyle 
-            onClick={handleClick} 
-            className={className}>
-                {type}
+        <DocumentTypeChangeStyle className={className}>
+            Select your main financial system: <button onClick={handleClick}>{type}</button>    
         </DocumentTypeChangeStyle>
     )}

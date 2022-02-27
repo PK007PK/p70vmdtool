@@ -1,32 +1,43 @@
 import { createGlobalStyle } from 'styled-components';
 
-const GlobalStyles = createGlobalStyle`
-/* @font-face {
-    font-family: 'radnika_next';
-    src: url('/static/radnikanext-medium-webfont.woff2')
-    format('woff2');
-    font-weight: normal;
-    font-style: normal;
-} */
+const initialConfig = `
+    box-sizing: border-box;
+    font-size: 10px;
+`
 
-
-html {
-    --red: #ff0000;
-    --black: #393939;
-    --grey: #3A3A3A;
-    --gray: var(--grey);
-    --lightGrey: #e1e1e1;
-    --lightGray: var(--lightGrey);
-    --offWhite: #ededed;
-    --maxWidth: #1000px;
-    --bs: 0 12px 24px 0 rgba(0,0,0,0.99);
-    --mainWidth: 350px;
+const colors = `
     --mainTextColor: #ECEFF1;
     --colorBankKey: #004D40;
     --colorBankAccount: #827717;
     --colorOk: #388E3C;
     --colorProblem: #E65100;
-    
+`
+const spaces = `
+    --mainWidth: 386px;
+    --maxWidth: #1000px;
+    --componentsPaddings: 5px 5px;
+    --componentsMargins: 30px 0px;
+`
+
+const fx = `
+    --bs: 0 12px 24px 0 rgba(0,0,0,0.99);
+    --componentsBorder: 1px solid black;
+`
+
+const typography = `
+
+`
+
+
+const GlobalStyles = createGlobalStyle`
+
+html {
+    ${initialConfig}
+    ${colors}
+    ${spaces}
+    ${fx}
+    ${typography}
+
     box-sizing: border-box;
     font-size: 10px;
 }

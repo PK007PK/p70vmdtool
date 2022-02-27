@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BankDetailsItemStyle = styled.div`
-    padding: 10px;
+    /* padding: 10px; */
 
     .titleBar {
         width: 100%;

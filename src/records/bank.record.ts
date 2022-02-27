@@ -1,3 +1,4 @@
+import { BankElementStartEnd } from 'types/BankElementStartEnd';
 import { BankRecordDetails } from 'types/BankRecordDetails';
 import { DocumentsBase } from 'types/documentBase';
 import {v4 as uuid} from 'uuid';
@@ -14,7 +15,6 @@ export class BankRecord {
 
         const {id, documentType, bankKey, bankAccount, iban, swift} = obj;
         
-        //tests
         this.id = id ?? uuid();
         this.documentType = documentType ?? DocumentsBase.Sap;
         this.bankKey = bankKey ?? "-";
@@ -24,14 +24,13 @@ export class BankRecord {
     }
 
     insert(key: BankRecordDetails, value: string) {
-        // this[key] = value.replaceAll(/\s/g,'');
         this[key] = value.replaceAll(" ", "").replaceAll("-", "").replaceAll("/", "");
     }
 
     detectInIban() {
-        const bankKeyPosition = {
-            start: 0,
-            end: 0,
+        const bankKeyPosition : BankElementStartEnd = {
+            start: "-",
+            end: "-",
         };
 
         if (this.iban.includes(this.bankKey)) {
@@ -39,10 +38,10 @@ export class BankRecord {
             bankKeyPosition.end = bankKeyPosition.start + this.bankKey.length - 1;
         }
 
-        const bankAccountPosition = {
-            start: 0,
-            end: 0,
-        };
+        const bankAccountPosition : BankElementStartEnd = {
+            start: "-",
+            end: "-",
+        }
 
         if (this.iban.includes(this.bankAccount)) {
             bankAccountPosition.start = this.iban.indexOf(this.bankAccount);

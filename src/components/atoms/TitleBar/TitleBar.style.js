@@ -6,12 +6,17 @@ export const TitleBarStyle = styled.div`
     align-items: center;
     width: var(--mainWidth);
     color: var(--mainTextColor);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 
     .logo {
-        width: 25px;
-        height: 25px;
-        margin-right: 10px
+        width: 21px;
+        height: 21px;
+        margin-right: 7px
+    }
+
+    span {
+        font-weight: 100;
+        font-size: 15px;
     }
 
 `
