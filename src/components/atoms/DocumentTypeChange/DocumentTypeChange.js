@@ -5,7 +5,7 @@ import { DocumentTypeChangeStyle } from "./DocumentTypeChangeStyle";
 
 export const DocumentTypeChange = ({className}) => {
     const {
-        bankRecord
+        bankRecord, forceUpdate
     } = useContext(AppContext);
     
     const [type, setType] = useState(bankRecord.documentType);
@@ -15,6 +15,7 @@ export const DocumentTypeChange = ({className}) => {
         bankRecord.insert("documentType", DocumentsBase.Cfin) :
         bankRecord.insert("documentType", DocumentsBase.Sap);
         setType(bankRecord.documentType);
+        forceUpdate();
     }
 
     return (

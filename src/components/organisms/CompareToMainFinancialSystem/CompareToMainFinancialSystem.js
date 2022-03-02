@@ -1,18 +1,16 @@
 import { AppContext } from "AppContext";
-import { useContext, useEffect, useState } from "react";
+import { elementToTitle } from "lib/elementToTitle";
+import { useContext } from "react";
 import { CompareToMainFinancialSystemStyle } from "./CompareToMainFinancialSystem.style";
 
-export const CompareToMainFinancialSystem = ({title}) => {
+export const CompareToMainFinancialSystem = ({element}) => {
     const {
         bankRecord
     } = useContext(AppContext);
 
-    const [, updateState] = useState();
-
-    useEffect(() => updateState(),[bankRecord]);
-    
     return (
         <CompareToMainFinancialSystemStyle>
-            <h3 className="title">Compare {title} to {bankRecord.documentType}</h3>
+            <h3 className="title">Comparing other sources to {bankRecord.documentType}: {elementToTitle(element)}</h3>
+            <p>{}</p>
         </CompareToMainFinancialSystemStyle>
     )}
