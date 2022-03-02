@@ -5,21 +5,24 @@ import { elementToTitle } from "lib/elementToTitle";
 import { useContext } from "react";
 import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
 
-export const BankDetailsItem = ({bankDetailsElementName, handleClick, bankDetailsElementValue}) => {
+export const BankDetailsItem = ({bankDetailsElementName, bankDetailsElementValue, handleClick, isTitle}) => {
     const {
         bankRecord
        } = useContext(AppContext);
 
     const {bankAccountDetected, bankKeyDetected} = bankRecord.detectInIban()
 
+    const isTitleBar = (check) => check &&            
+        <div className="titleBar">
+            <h3 className="title">{elementToTitle(bankDetailsElementName)}</h3>
+            <span className="count">
+                Count: {bankDetailsElementValue === "-" ? "-" : bankDetailsElementValue.length}
+            </span>
+        </div>
+
     return (
         <BankDetailsItemStyle>
-            <div className="titleBar">
-                <h3 className="title">{elementToTitle(bankDetailsElementName)}</h3>
-                <span className="count">
-                    Count: {bankDetailsElementValue === "-" ? "-" : bankDetailsElementValue.length}
-                </span>
-            </div>
+            {isTitleBar(isTitle)}
             <button id={bankDetailsElementName} onClick={handleClick}>
                 <TranfsormStringIntoBoxes bankDetailsElementName={bankDetailsElementName} bankDetailsElementValue={bankDetailsElementValue} />
             </button>

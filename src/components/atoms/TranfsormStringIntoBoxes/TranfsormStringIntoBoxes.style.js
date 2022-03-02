@@ -17,10 +17,6 @@ export const StyledSpan = styled.span`
 
     border: 1px solid gray;
     color: var(--mainTextColor);
-    /* --colorBankKey: #1B5E20;
-    --colorBankAccount: #2E7D32;
-    --colorOk: #388E3C;
-    --colorProblem: #E65100; */
 
     &:hover {
         color: white;
