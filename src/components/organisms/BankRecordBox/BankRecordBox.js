@@ -30,11 +30,11 @@ export const BankRecordBox = ({i = 0}) => {
       <DocumentTypeChange className="docTypeChanger" />
       {Object.entries(bankRecord)
         .filter(item => item[0] in BankRecordDetails)
-        .map(([key,value]) => 
+        .map(([bankDetailsElementName,bankDetailsElementValue]) => 
           <BankDetailsItem 
-            key={key} 
-            element={key} 
-            value={value} 
+            key={bankDetailsElementName} 
+            bankDetailsElementName={bankDetailsElementName} 
+            bankDetailsElementValue={bankDetailsElementValue} 
             handleClick={handleClick}
           />
         )

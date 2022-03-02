@@ -5,7 +5,7 @@ import { elementToTitle } from "lib/elementToTitle";
 import { useContext } from "react";
 import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
 
-export const BankDetailsItem = ({element, handleClick, value}) => {
+export const BankDetailsItem = ({bankDetailsElementName, handleClick, bankDetailsElementValue}) => {
     const {
         bankRecord
        } = useContext(AppContext);
@@ -15,15 +15,15 @@ export const BankDetailsItem = ({element, handleClick, value}) => {
     return (
         <BankDetailsItemStyle>
             <div className="titleBar">
-                <h3 className="title">{elementToTitle(element)}</h3>
+                <h3 className="title">{elementToTitle(bankDetailsElementName)}</h3>
                 <span className="count">
-                    Count: {value === "-" ? "-" : value.length}
+                    Count: {bankDetailsElementValue === "-" ? "-" : bankDetailsElementValue.length}
                 </span>
             </div>
-            <button id={element} onClick={handleClick}>
-                <TranfsormStringIntoBoxes element={element} details={value} />
+            <button id={bankDetailsElementName} onClick={handleClick}>
+                <TranfsormStringIntoBoxes bankDetailsElementName={bankDetailsElementName} bankDetailsElementValue={bankDetailsElementValue} />
             </button>
-            {element === "iban" &&  
+            {bankDetailsElementName === "iban" &&  
                 <IbanStatus 
                     bankKeyDetected={bankKeyDetected} 
                     bankAccountDetected={bankAccountDetected} 
