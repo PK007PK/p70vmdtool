@@ -26,7 +26,7 @@ export const BankDetailsItem = ({bankDetailsElementName, bankDetailsElementValue
             <button id={bankDetailsElementName} onClick={handleClick}>
                 <TranfsormStringIntoBoxes bankDetailsElementName={bankDetailsElementName} bankDetailsElementValue={bankDetailsElementValue} />
             </button>
-            {bankDetailsElementName === "iban" &&  
+            {bankDetailsElementName === "iban" && isTitle &&
                 <IbanStatus 
                     bankKeyDetected={bankKeyDetected} 
                     bankAccountDetected={bankAccountDetected} 

@@ -1,11 +1,12 @@
+import { cleanString } from 'lib/cleanString';
+import { AcceptedDocuments } from 'types/AcceptedDocuments';
 import { BankElementStartEnd } from 'types/BankElementStartEnd';
 import { BankRecordDetails } from 'types/BankRecordDetails';
-import { DocumentsBase } from 'types/documentBase';
 import {v4 as uuid} from 'uuid';
 
 export class BankRecord {
     public id?: string;
-    public documentType?: DocumentsBase;
+    public documentType?: AcceptedDocuments;
     public bankKey: string;
     public bankAccount: string;
     public iban: string;
@@ -16,7 +17,7 @@ export class BankRecord {
         const {id, documentType, bankKey, bankAccount, iban, swift} = obj;
         
         this.id = id ?? uuid();
-        this.documentType = documentType ?? DocumentsBase.Sap;
+        this.documentType = documentType ?? AcceptedDocuments.Sap;
         this.bankKey = bankKey ?? "-";
         this.bankAccount = bankAccount ?? "-";
         this.iban = iban ?? "-";
@@ -24,7 +25,7 @@ export class BankRecord {
     }
 
     insert(key: BankRecordDetails, value: string) {
-        this[key] = value.replaceAll(" ", "").replaceAll("-", "").replaceAll("/", "");
+        this[key] = cleanString(value);
     }
 
     detectInIban() {

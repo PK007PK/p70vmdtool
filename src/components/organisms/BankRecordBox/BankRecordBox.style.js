@@ -8,7 +8,7 @@ export const BankRecordBoxStyle = styled.div`
 
     .docTypeChanger {
         position: absolute;
-        top: -25px;
+        top: -32px;
         left: 0;
     }
 `

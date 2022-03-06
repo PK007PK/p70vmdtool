@@ -9,6 +9,8 @@ const [bankRecord, setBankRecord] = useState(new BankRecord({}));
 const [, updateState] = useState();
 const forceUpdate = useCallback(() => updateState({}), []);
 
+
+
 return (
     <AppContext.Provider value={{bankRecord, setBankRecord, forceUpdate}}>
       {children}

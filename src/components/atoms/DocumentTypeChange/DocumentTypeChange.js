@@ -1,6 +1,6 @@
 import { AppContext } from "AppContext";
 import { useContext, useState } from "react";
-import { DocumentsBase } from "types/documentBase"
+import { AcceptedDocuments } from "types/AcceptedDocuments";
 import { DocumentTypeChangeStyle } from "./DocumentTypeChangeStyle";
 
 export const DocumentTypeChange = ({className}) => {
@@ -12,14 +12,15 @@ export const DocumentTypeChange = ({className}) => {
 
     const handleClick = () => {
         bankRecord.documentType === "SAP" ? 
-        bankRecord.insert("documentType", DocumentsBase.Cfin) :
-        bankRecord.insert("documentType", DocumentsBase.Sap);
+        bankRecord.insert("documentType", AcceptedDocuments.Cfin) :
+        bankRecord.insert("documentType", AcceptedDocuments.Sap);
         setType(bankRecord.documentType);
         forceUpdate();
     }
 
     return (
         <DocumentTypeChangeStyle className={className}>
-            Select your main financial system: <button onClick={handleClick}>{type}</button>    
+            <h2 className="title">Main financial system analitics:</h2>
+            <button onClick={handleClick}>{type}</button>
         </DocumentTypeChangeStyle>
     )}

@@ -11,10 +11,12 @@ export const CompareToMainFinancialSystem = ({bankDetailsElementName}) => {
 
     return (
         <CompareToMainFinancialSystemStyle>
-            <h3 className="title">Comparing other sources to {bankRecord.documentType}: {elementToTitle(bankDetailsElementName)}</h3>
+            <h3 className="title">{elementToTitle(bankDetailsElementName)} analitics</h3>
+            In {bankRecord.documentType}:
             <BankDetailsItem 
                 bankDetailsElementName={bankDetailsElementName} 
                 bankDetailsElementValue={bankRecord[bankDetailsElementName]} 
             />
+            On comparing document:
         </CompareToMainFinancialSystemStyle>
     )}

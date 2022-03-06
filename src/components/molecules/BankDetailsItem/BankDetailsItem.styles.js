@@ -13,6 +13,8 @@ export const BankDetailsItemStyle = styled.div`
 
     .title {
         margin: 0;
+        font-size: var(--mainFontSize);
+        font-weight: normal;
     }
 
     .count {}
