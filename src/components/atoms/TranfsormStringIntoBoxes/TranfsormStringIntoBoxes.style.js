@@ -7,6 +7,7 @@ export const StyledSpan = styled.span`
     justify-content: center;
     align-items: center;
     font-size: 20px;
+    cursor: copy;
     background-color: ${({isBankKey, isBankAccount, bankAccountElement, bankKeyElement}) => 
         isBankKey ? 'var(--colorBankKey)' 
         : isBankAccount ? 'var(--colorBankAccount)' 
