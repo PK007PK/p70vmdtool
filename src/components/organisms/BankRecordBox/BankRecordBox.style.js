@@ -13,9 +13,13 @@ export const BankRecordBoxStyle = styled.div`
         left: 0;
     }
 
-    .reset {
+    .bottomButtonBar {
         position: absolute;
+        right: 0;
         bottom: -30px;
-        right: 5px;
+
+        & > * {
+            margin-left: 4px;
+        }
     }
 `

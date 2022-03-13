@@ -14,23 +14,30 @@ export const BankRecordBox = () => {
        forceUpdate, 
        analiticRecords
       } = useContext(AppContext);
+
+  const AllBankDetails = () => 
+  <>
+    {Object.entries(bankRecord)
+      .filter(item => item[0] in BankRecordDetails)
+      .map(([bankDetailsElementName,bankDetailsElementValue]) => 
+        <BankDetailsItem 
+          key={bankDetailsElementName} 
+          bankDetailsElementName={bankDetailsElementName} 
+          bankDetailsElementValue={bankDetailsElementValue} 
+          handleClick={(e) => handleClick(e, bankRecord, forceUpdate)}
+          isTitle={true}
+        />
+      )
+    }
+  </>
   
   
   return (
     <BankRecordBoxStyle>
       <DocumentTypeChange className="docTypeChanger" />
-      {Object.entries(bankRecord)
-        .filter(item => item[0] in BankRecordDetails)
-        .map(([bankDetailsElementName,bankDetailsElementValue]) => 
-          <BankDetailsItem 
-            key={bankDetailsElementName} 
-            bankDetailsElementName={bankDetailsElementName} 
-            bankDetailsElementValue={bankDetailsElementValue} 
-            handleClick={(e) => handleClick(e, bankRecord, forceUpdate)}
-            isTitle={true}
-          />
-        )
-      }
-      <Button absolute onClick={resetBankRecord} className="reset">Reset</Button>
+      <AllBankDetails />
+      <div className="bottomButtonBar">
+        <Button onClick={resetBankRecord} className="reset">Reset</Button>
+      </div>
     </BankRecordBoxStyle>
   )}
