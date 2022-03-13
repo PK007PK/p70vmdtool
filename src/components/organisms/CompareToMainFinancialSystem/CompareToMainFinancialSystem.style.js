@@ -9,11 +9,11 @@ export const CompareToMainFinancialSystemStyle = styled.div`
     position: relative;
 
     .title {
+        position: absolute;
+        top: -30px;
+        left: -2px;
         margin: 0;
         font-size: 1.6rem;
         font-weight: normal;
-        position: absolute;
-        top: -25px;
-        left: 5px;
     }
 `

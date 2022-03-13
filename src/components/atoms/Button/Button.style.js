@@ -7,5 +7,8 @@ export const ButtonStyle = styled.button`
     padding: 3px 10px;
     min-width: 70px;
     cursor: pointer;
+    font-size: var(--fontSizeSmall);
+    line-height: 20px;
+    display: inline;
 `
 

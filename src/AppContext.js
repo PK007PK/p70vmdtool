@@ -12,15 +12,15 @@ const AppProvider = ({ children }) => {
 
   const [bankRecord, setBankRecord] = useState(new BankRecord({}));
 
-  const resetBankRecord = () => setBankRecord(new BankRecord({}));
-
+  const deleteBankRecord = () => setBankRecord(new BankRecord({}));
+  
   const [analiticRecords, setAnaliticRecords] = useState(
     Object.values(BankRecordDetails).map(element => new AnaliticsRecord({type: element}))
   )
 
   return (
     <AppContext.Provider value={{
-      bankRecord, setBankRecord, resetBankRecord,
+      bankRecord, setBankRecord, deleteBankRecord,
       analiticRecords,
       forceUpdate
     }}>

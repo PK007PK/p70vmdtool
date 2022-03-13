@@ -6,11 +6,12 @@ import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetail
 import { DocumentTypeChange } from "components/atoms/DocumentTypeChange/DocumentTypeChange";
 import { handleClick } from "lib/handleClick";
 import { Button } from "components/atoms/Button/Button";
+import { SwiftRefLink } from "components/molecules/SwiftRefLink/SwiftRefLink";
 
 export const BankRecordBox = () => {
 
   const {
-       bankRecord, resetBankRecord,
+       bankRecord, deleteBankRecord,
        forceUpdate, 
        analiticRecords
       } = useContext(AppContext);
@@ -30,14 +31,15 @@ export const BankRecordBox = () => {
       )
     }
   </>
-  
-  
+
   return (
     <BankRecordBoxStyle>
       <DocumentTypeChange className="docTypeChanger" />
       <AllBankDetails />
       <div className="bottomButtonBar">
-        <Button onClick={resetBankRecord} className="reset">Reset</Button>
+        <SwiftRefLink />
+        <Button>Reset All</Button>
+        <Button onClick={deleteBankRecord}>Reset</Button>
       </div>
     </BankRecordBoxStyle>
   )}

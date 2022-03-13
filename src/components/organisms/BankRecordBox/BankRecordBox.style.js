@@ -17,6 +17,8 @@ export const BankRecordBoxStyle = styled.div`
         position: absolute;
         right: 0;
         bottom: -30px;
+        display: flex;
+        align-items: center;
 
         & > * {
             margin-left: 4px;

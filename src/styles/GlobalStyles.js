@@ -16,7 +16,7 @@ const spaces = `
     --mainWidth: 386px;
     --maxWidth: #1000px;
     --componentsPaddings: 5px 5px;
-    --componentsMargins: 30px 0px;
+    --componentsMargins: 45px 0px;
 `
 
 const fx = `
@@ -25,7 +25,7 @@ const fx = `
 `
 
 const typography = `
-
+    --fontSizeSmall: 13px;
 `
 
 

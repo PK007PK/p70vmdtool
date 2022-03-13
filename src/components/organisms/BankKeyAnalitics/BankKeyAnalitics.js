@@ -6,12 +6,16 @@ export const BankKeyAnalitics = () => {
     const {
         analiticRecords
     } = useContext(AppContext);
-    console.log(analiticRecords[0]);
 
     return (
         <>
             {analiticRecords.map((element) => 
-                <CompareToMainFinancialSystem key={element.type} record={element} title={element.readTitle()} bankDetailsElementName={element.type} />
+                <CompareToMainFinancialSystem 
+                    key={element.type} 
+                    record={element} 
+                    title={element.readTitle()} 
+                    bankDetailsElementName={element.type} 
+                />
             )}
         </>
     )
