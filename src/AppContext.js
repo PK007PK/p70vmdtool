@@ -7,17 +7,23 @@ export const AppContext = createContext();
 
 const AppProvider = ({ children }) => {
 
-const [, updateState] = useState();
-const forceUpdate = useCallback(() => updateState({}), []);
+  const [, updateState] = useState();
+  const forceUpdate = useCallback(() => updateState({}), []);
 
-const [bankRecord, setBankRecord] = useState(new BankRecord({}));
+  const [bankRecord, setBankRecord] = useState(new BankRecord({}));
 
-const [analiticRecords, setAnaliticRecords] = useState(
-  Object.values(BankRecordDetails).map(element => new AnaliticsRecord({type: element}))
-)
+  const resetBankRecord = () => setBankRecord(new BankRecord({}));
 
-return (
-    <AppContext.Provider value={{bankRecord, setBankRecord, forceUpdate, analiticRecords}}>
+  const [analiticRecords, setAnaliticRecords] = useState(
+    Object.values(BankRecordDetails).map(element => new AnaliticsRecord({type: element}))
+  )
+
+  return (
+    <AppContext.Provider value={{
+      bankRecord, setBankRecord, resetBankRecord,
+      analiticRecords,
+      forceUpdate
+    }}>
       {children}
     </AppContext.Provider>
   );

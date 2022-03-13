@@ -13,11 +13,5 @@ padding: 0 5px;
     margin: 0;
 }
 
-button {
-    background: var(--mainTextColor);
-    border: none;
-    width: 70px;
-    height: 25px;
 
-}
 `

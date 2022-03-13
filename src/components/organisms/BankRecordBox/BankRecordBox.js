@@ -5,13 +5,16 @@ import { BankRecordBoxStyle } from "./BankRecordBox.style";
 import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
 import { DocumentTypeChange } from "components/atoms/DocumentTypeChange/DocumentTypeChange";
 import { handleClick } from "lib/handleClick";
+import { Button } from "components/atoms/Button/Button";
 
 export const BankRecordBox = () => {
 
   const {
-       bankRecord, forceUpdate, analiticRecords
+       bankRecord, resetBankRecord,
+       forceUpdate, 
+       analiticRecords
       } = useContext(AppContext);
-  console.log(analiticRecords);
+  
   
   return (
     <BankRecordBoxStyle>
@@ -28,5 +31,6 @@ export const BankRecordBox = () => {
           />
         )
       }
+      <Button absolute onClick={resetBankRecord} className="reset">Reset</Button>
     </BankRecordBoxStyle>
   )}

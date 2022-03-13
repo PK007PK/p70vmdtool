@@ -1,6 +1,7 @@
 import { AppContext } from "AppContext";
 import { useContext, useState } from "react";
 import { AcceptedDocuments } from "types/AcceptedDocuments";
+import { Button } from "../Button/Button";
 import { DocumentTypeChangeStyle } from "./DocumentTypeChangeStyle";
 
 export const DocumentTypeChange = ({className}) => {
@@ -21,6 +22,6 @@ export const DocumentTypeChange = ({className}) => {
     return (
         <DocumentTypeChangeStyle className={className}>
             <h2 className="title">Main financial system analitics:</h2>
-            <button onClick={handleClick}>{type}</button>
+            <Button onClick={handleClick}>{type}</Button>
         </DocumentTypeChangeStyle>
     )}
