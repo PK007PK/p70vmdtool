@@ -1,4 +1,5 @@
 import { cleanString } from 'lib/cleanString';
+import { elementToTitle } from 'lib/elementToTitle';
 import { AcceptedDocuments } from 'types/AcceptedDocuments';
 import {v4 as uuid} from 'uuid';
 
@@ -8,16 +9,16 @@ type ComparedDoc = {
     docValue: string;
 }
 
-export class ComparingDocRecord {
+export class AnaliticsRecord {
     public recordId?: string;
-    public title: string;
-    public benchmark: string = "-";
+    public type: string;
+    public benchmark: string;
     public allComparedDocs: ComparedDoc[];
 
-    constructor(obj: Omit<ComparingDocRecord, 'updateBenchmark' | 'createComparingDoc' | 'updateComparingDoc' >) {
-        const {recordId, title, benchmark, allComparedDocs} = obj;
+    constructor(obj: Omit<AnaliticsRecord, 'updateBenchmark' | 'createComparingDoc' | 'updateComparingDoc' >) {
+        const {recordId, type, benchmark, allComparedDocs} = obj;
         this.recordId = recordId ?? uuid();
-        this.title = title;
+        this.type = type;
         this.benchmark = benchmark;
         this.allComparedDocs = allComparedDocs ?? [];
     }
@@ -26,7 +27,9 @@ export class ComparingDocRecord {
         this.allComparedDocs.push(newDoc);
     }
 
-    read() {}
+    readTitle() {
+        return elementToTitle(this.type);
+    }
 
     updateBenchmark(value: string) {
         this.benchmark = cleanString(value);
@@ -49,5 +52,4 @@ export class ComparingDocRecord {
         const index = this.allComparedDocs.findIndex(doc => doc.refDocId === docId);
         this.allComparedDocs.splice(index, 1);
     }
-
 }

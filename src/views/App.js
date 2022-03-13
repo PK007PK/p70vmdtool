@@ -7,8 +7,10 @@ import Layout from 'components/atoms/Layout/Layout';
 import { TitleBar } from 'components/atoms/TitleBar/TitleBar';
 import { BankRecordBox } from 'components/organisms/BankRecordBox/BankRecordBox';
 import { CompareToMainFinancialSystem } from 'components/organisms/CompareToMainFinancialSystem/CompareToMainFinancialSystem';
+import { BankKeyAnalitics } from 'components/organisms/BankKeyAnalitics/BankKeyAnalitics';
 
 function App() {
+  
   return (
     <AppProvider>
       <ThemeProvider theme={theme}>
@@ -16,10 +18,11 @@ function App() {
         <Layout>
           <TitleBar />
           <BankRecordBox />
-          <CompareToMainFinancialSystem title="bank keys" bankDetailsElementName="bankKey" />
+          <BankKeyAnalitics />
+          {/* <CompareToMainFinancialSystem title="bank keys" bankDetailsElementName="bankKey" />
           <CompareToMainFinancialSystem title="bank accounts"bankDetailsElementName="bankAccount" />
           <CompareToMainFinancialSystem title="iban" bankDetailsElementName="iban" />
-          <CompareToMainFinancialSystem title="swifts" bankDetailsElementName="swift" />
+          <CompareToMainFinancialSystem title="swifts" bankDetailsElementName="swift" /> */}
         </Layout>
       </ThemeProvider>
     </AppProvider>

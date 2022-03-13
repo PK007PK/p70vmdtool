@@ -9,9 +9,10 @@ import { handleClick } from "lib/handleClick";
 export const BankRecordBox = () => {
 
   const {
-       bankRecord, forceUpdate
+       bankRecord, forceUpdate, analiticRecords
       } = useContext(AppContext);
-
+  console.log(analiticRecords);
+  
   return (
     <BankRecordBoxStyle>
       <DocumentTypeChange className="docTypeChanger" />
