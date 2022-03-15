@@ -1,22 +1,34 @@
 import { AppContext } from "AppContext";
 import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
-import { elementToTitle } from "lib/elementToTitle";
 import { useContext } from "react";
 import { CompareToMainFinancialSystemStyle } from "./CompareToMainFinancialSystem.style";
 
-export const CompareToMainFinancialSystem = ({bankDetailsElementName}) => {
+export const CompareToMainFinancialSystem = ({record}) => {
     const {
-        bankRecord
+        bankRecord, forceUpdate
     } = useContext(AppContext);
+    console.log(record);
+
+    const handleClick = (e, record, updateFunction) => {
+        navigator.clipboard.readText()
+          .then(text => {
+            if (text === "") {
+              return;
+            }
+            record.insert(e.target.id, text.toString());
+            updateFunction(); 
+          })
+        navigator.clipboard.writeText("");
+    };
 
     return (
         <CompareToMainFinancialSystemStyle>
-            <h3 className="title">{elementToTitle(bankDetailsElementName)} analitics</h3>
-            In {bankRecord.documentType}:
+            {record.readTitle()} in {bankRecord.documentType}:
             <BankDetailsItem 
-                bankDetailsElementName={bankDetailsElementName} 
-                bankDetailsElementValue={bankRecord[bankDetailsElementName]} 
+                bankDetailsElementName={record.type} 
+                bankDetailsElementValue={bankRecord[record.type]} 
             />
-            On comparing document:
+            Copy and click {record.readTitle()} value from comparing document:
+            <button handleClick={(e) => handleClick(e, record, forceUpdate)}>x</button>
         </CompareToMainFinancialSystemStyle>
     )}

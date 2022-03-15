@@ -21,7 +21,7 @@ export const DocumentTypeChange = ({className}) => {
 
     return (
         <DocumentTypeChangeStyle className={className}>
-            <h2 className="title">Main financial system analitics:</h2>
+            <h2 className="title">Main financial system:</h2>
             <Button onClick={handleClick}>{type}</Button>
         </DocumentTypeChangeStyle>
     )}

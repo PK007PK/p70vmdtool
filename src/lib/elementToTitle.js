@@ -11,7 +11,7 @@ export function elementToTitle(element) {
             title = "Iban";
             break;
         case "swift":
-            title = "Swift";
+            title = "SWIFT code";
             break; 
         default:
             break;

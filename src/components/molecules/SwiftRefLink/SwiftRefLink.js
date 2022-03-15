@@ -1,6 +1,6 @@
 import { AppContext } from "AppContext";
 import { Button } from "components/atoms/Button/Button";
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 
 export const SwiftRefLink = () => {
     const {

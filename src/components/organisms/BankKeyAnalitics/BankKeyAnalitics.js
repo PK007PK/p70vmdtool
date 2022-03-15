@@ -4,18 +4,20 @@ import { CompareToMainFinancialSystem } from "../CompareToMainFinancialSystem/Co
 
 export const BankKeyAnalitics = () => {
     const {
-        analiticRecords
+        bankRecord, allAnaliticRecords
     } = useContext(AppContext);
 
     return (
         <>
-            {analiticRecords.map((element) => 
-                <CompareToMainFinancialSystem 
-                    key={element.type} 
-                    record={element} 
-                    title={element.readTitle()} 
-                    bankDetailsElementName={element.type} 
-                />
+            {allAnaliticRecords.map((element, i) => {
+                element.benchmark = bankRecord[element.type]
+                return (
+                        <CompareToMainFinancialSystem 
+                            key={element.type} 
+                            record={element}
+                        />
+                    )
+                }
             )}
         </>
     )
