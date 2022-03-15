@@ -2,7 +2,7 @@ import { AppContext } from "AppContext";
 import { useContext } from "react";
 import { CompareToMainFinancialSystem } from "../CompareToMainFinancialSystem/CompareToMainFinancialSystem";
 
-export const BankKeyAnalitics = () => {
+export const AllOtherFinancialSystems = () => {
     const {
         bankRecord, allAnaliticRecords
     } = useContext(AppContext);

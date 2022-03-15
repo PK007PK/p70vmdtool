@@ -5,8 +5,8 @@ import theme from 'assets/Theme';
 
 import Layout from 'components/atoms/Layout/Layout';
 import { TitleBar } from 'components/atoms/TitleBar/TitleBar';
-import { BankKeyAnalitics } from 'components/organisms/BankKeyAnalitics/BankKeyAnalitics';
-import { MainFinancialSystemBoxStyle } from 'components/organisms/MainFinancialSystemBox/MainFinancialSystemBox.style';
+import { MainFinancialSystem } from 'components/organisms/MainFinancialSystem/MainFinancialSystem';
+import { AllOtherFinancialSystems } from 'components/organisms/AllOtherFinancialSystems/AllOtherFinancialSystems';
 
 function App() {
   
@@ -16,8 +16,8 @@ function App() {
         <GlobalStyles />
         <Layout>
           <TitleBar />
-          <MainFinancialSystemBoxStyle />
-          <BankKeyAnalitics />
+          <MainFinancialSystem />
+          <AllOtherFinancialSystems />
         </Layout>
       </ThemeProvider>
     </AppProvider>

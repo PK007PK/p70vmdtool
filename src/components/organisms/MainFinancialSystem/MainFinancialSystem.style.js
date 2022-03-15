@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainFinancialSystemBoxStyle = styled.div`
+export const MainFinancialSystemStyle = styled.div`
     border: 1px solid black;
     max-width: 386px;
     position: relative;

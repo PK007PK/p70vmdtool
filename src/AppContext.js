@@ -1,7 +1,7 @@
 import { createContext, useCallback, useState } from 'react';
-import { AnaliticsRecord } from 'records/analiticsRecord.record';
+import { AdditionalBankRecord } from 'records/additionalBankRecord';
 import { BankRecord } from 'records/bank.record.ts';
-import { BankRecordDetails } from 'types/BankRecordDetails';
+import { BankRecordParts } from 'types/BankRecordParts';
 
 export const AppContext = createContext();
 
@@ -15,7 +15,7 @@ const AppProvider = ({ children }) => {
   const resetBankRecord = () => setBankRecord(new BankRecord({}));
   
   const [allAnaliticRecords, setAllAnaliticRecords] = useState(
-    Object.values(BankRecordDetails).map(element => new AnaliticsRecord({type: element}))
+    Object.values(BankRecordParts).map(element => new AdditionalBankRecord({type: element}))
   )
 
   return (

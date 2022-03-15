@@ -1,4 +1,4 @@
-export enum BankRecordDetails {
+export enum BankRecordParts {
     bankKey = "bankKey",
     bankAccount = "bankAccount",
     iban = "iban",

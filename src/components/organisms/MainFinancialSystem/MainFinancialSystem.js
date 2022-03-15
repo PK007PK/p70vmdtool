@@ -1,14 +1,14 @@
 import { useContext } from "react";
 import { AppContext } from "AppContext";
-import { BankRecordDetails } from "types/BankRecordDetails";
-import { MainFinancialSystemBoxStyle } from "./MainFinancialSystemBoxStyle.style";
+import { BankRecordParts } from "types/BankRecordParts";
 import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
 import { DocumentTypeChange } from "components/atoms/DocumentTypeChange/DocumentTypeChange";
 import { handleClick } from "lib/handleClick";
 import { Button } from "components/atoms/Button/Button";
 import { SwiftRefLink } from "components/molecules/SwiftRefLink/SwiftRefLink";
+import { MainFinancialSystemStyle } from "./MainFinancialSystem.style";
 
-export const MainFinancialSystemBox = () => {
+export const MainFinancialSystem = () => {
 
   const {
        bankRecord, resetBankRecord,
@@ -18,7 +18,7 @@ export const MainFinancialSystemBox = () => {
   const AllBankDetails = () => 
   <>
     {Object.entries(bankRecord)
-      .filter(item => item[0] in BankRecordDetails)
+      .filter(item => item[0] in BankRecordParts)
       .map(([bankDetailsElementName,bankDetailsElementValue]) => 
         <BankDetailsItem 
           key={bankDetailsElementName} 
@@ -32,7 +32,7 @@ export const MainFinancialSystemBox = () => {
   </>
 
   return (
-    <MainFinancialSystemBoxStyle>
+    <MainFinancialSystemStyle>
       <DocumentTypeChange className="docTypeChanger" />
       <AllBankDetails />
       <div className="bottomButtonBar">
@@ -40,5 +40,5 @@ export const MainFinancialSystemBox = () => {
         <Button>Reset All</Button>
         <Button onClick={resetBankRecord}>Reset</Button>
       </div>
-    </MainFinancialSystemBoxStyle>
+    </MainFinancialSystemStyle>
   )}

@@ -1,7 +1,7 @@
 import { cleanString } from 'lib/cleanString';
 import { AcceptedDocuments } from 'types/AcceptedDocuments';
 import { BankElementStartEnd } from 'types/BankElementStartEnd';
-import { BankRecordDetails } from 'types/BankRecordDetails';
+import { BankRecordParts } from 'types/BankRecordParts';
 import {v4 as uuid} from 'uuid';
 
 export class BankRecord {
@@ -24,7 +24,7 @@ export class BankRecord {
         this.swift = swift ?? "-";
     }
 
-    insert(key: BankRecordDetails, value: string) {
+    insert(key: BankRecordParts, value: string) {
         this[key] = cleanString(value);
     }
 
