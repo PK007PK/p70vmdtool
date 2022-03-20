@@ -15,7 +15,7 @@ export const CompareToMainFinancialSystem = ({record}) => {
             if (text === "") {
               return;
             }
-            record.insert(e.target.id, text.toString());
+            record.insert(text.toString());
             updateFunction(); 
           })
         navigator.clipboard.writeText("");
@@ -29,6 +29,6 @@ export const CompareToMainFinancialSystem = ({record}) => {
                 bankDetailsElementValue={bankRecord[record.type]} 
             />
             Copy and click {record.readTitle()} value from comparing document:
-            <button handleClick={(e) => handleClick(e, record, forceUpdate)}>x</button>
+            <button onClick={(e) => handleClick(e, record, forceUpdate)}>x</button>
         </CompareToMainFinancialSystemStyle>
     )}
