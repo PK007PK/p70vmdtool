@@ -7,10 +7,18 @@ export const MainFinancialSystemStyle = styled.div`
     padding: var(--componentsPaddings);
     margin-bottom: 75px;
 
-    .docTypeChanger {
+    .componentTitleBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         position: absolute;
-        top: -32px;
+        top: -50px;
         left: 0;
+        width: 100%;
+    }
+
+    .title {
+        color: var(--mainTextColor);
     }
 
     .bottomButtonBar {

@@ -1,8 +1,10 @@
 import { cleanString } from 'lib/cleanString';
 import { AcceptedDocuments } from 'types/AcceptedDocuments';
 import { BankElementStartEnd } from 'types/BankElementStartEnd';
-import { BankRecordParts } from 'types/BankRecordParts';
+import { BankRecordElements } from 'types/BankRecordElements';
 import {v4 as uuid} from 'uuid';
+
+const defaultValue = "-";
 
 export class BankRecord {
     public id?: string;
@@ -18,20 +20,20 @@ export class BankRecord {
         
         this.id = id ?? uuid();
         this.documentType = documentType ?? AcceptedDocuments.Sap;
-        this.bankKey = bankKey ?? "-";
-        this.bankAccount = bankAccount ?? "-";
-        this.iban = iban ?? "-";
-        this.swift = swift ?? "-";
+        this.bankKey = bankKey ?? defaultValue;
+        this.bankAccount = bankAccount ?? defaultValue;
+        this.iban = iban ?? defaultValue;
+        this.swift = swift ?? defaultValue;
     }
 
-    insert(key: BankRecordParts, value: string) {
+    insert(key: BankRecordElements, value: string) {
         this[key] = cleanString(value);
     }
 
     detectInIban() {
         const bankKeyPosition : BankElementStartEnd = {
-            start: "-",
-            end: "-",
+            start: defaultValue,
+            end: defaultValue,
         };
 
         if (this.iban.includes(this.bankKey)) {
@@ -40,8 +42,8 @@ export class BankRecord {
         }
 
         const bankAccountPosition : BankElementStartEnd = {
-            start: "-",
-            end: "-",
+            start: defaultValue,
+            end: defaultValue,
         }
 
         if (this.iban.includes(this.bankAccount)) {
@@ -55,5 +57,12 @@ export class BankRecord {
             bankAccountDetected: this.iban.includes(this.bankAccount),
             bankAccountPosition,
         }
+    }
+
+    reset() {
+        this.bankKey = defaultValue;
+        this.bankAccount = defaultValue;
+        this.iban = defaultValue;
+        this.swift = defaultValue;
     }
 }

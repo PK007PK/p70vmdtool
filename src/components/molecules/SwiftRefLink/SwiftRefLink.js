@@ -4,14 +4,14 @@ import { useContext} from "react";
 
 export const SwiftRefLink = () => {
     const {
-        bankRecord
+        allBankRecords
        } = useContext(AppContext);
 
     const link = `https://www.swiftrefdata.com/new/en/iban#validation/`
     
     return (
-        bankRecord.iban !== "-" 
-            ? <Button as="a" href={`${link}${bankRecord.iban}`}>Check in SwiftRef</Button> 
+        allBankRecords[0].iban !== "-" 
+            ? <Button as="a" href={`${link}${allBankRecords[0].iban}`}>Check in SwiftRef</Button> 
             : null
     )
 }
