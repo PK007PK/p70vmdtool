@@ -4,7 +4,8 @@ export const TranfsormStringIntoBoxes = (props) => {
     const {
         bankRecord,
         bankDetailsElementName,
-        bankDetailsElementValue = ['-']
+        bankDetailsElementValue = ['-'],
+        theSameAsMain,
     } = props;
 
     const {
@@ -16,6 +17,7 @@ export const TranfsormStringIntoBoxes = (props) => {
             bankDetailsElementValue.split('').map((el, i) => 
                 <StyledSpan 
                     id={bankDetailsElementName}
+                    theSameAsMain={theSameAsMain}
                     bankDetailsElementName={bankDetailsElementName}
                     bankKeyElement={bankDetailsElementName === "bankKey"}
                     bankAccountElement={bankDetailsElementName === "bankAccount"}

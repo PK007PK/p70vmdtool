@@ -15,19 +15,17 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
        resetAll,
       } = useContext(AppContext);
 
-  const handleReset = () => {
-    allBankRecords[documentNumber].reset();
-    forceUpdate();
-  }
+  const bankRecord = allBankRecords[documentNumber];
+  console.log(bankRecord);
 
-  const handleResetAll = () => {
-    resetAll();
+  const handleReset = () => {
+    bankRecord.reset();
     forceUpdate();
   }
 
   const TitleBar = () =>       
     <div className="componentTitleBar">
-      <h3 className="title">{allBankRecords[documentNumber].documentType}</h3>
+      <h3 className="title">{bankRecord.documentType}</h3>
       <div>
         {main && <Button onClick={resetAll}>Reset All</Button>}
         <Button onClick={handleReset}>Reset</Button>
@@ -37,16 +35,15 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
 
   const AllBankDetails = () => 
     <>
-      {Object.entries(allBankRecords[documentNumber])
+      {Object.entries(bankRecord)
         .filter(item => item[0] in BankRecordElements)
         .map(([bankDetailsElementName,bankDetailsElementValue]) => 
           <BankDetailsItem 
             key={bankDetailsElementName} 
-            documentNumber={documentNumber}
-            bankRecord={allBankRecords[documentNumber]}
+            bankRecord={bankRecord}
             bankDetailsElementName={bankDetailsElementName} 
             bankDetailsElementValue={bankDetailsElementValue} 
-            handleClick={(e) => handleClick(e, allBankRecords[documentNumber], forceUpdate)}
+            handleClick={(e) => handleClick(e, bankRecord, forceUpdate)}
           />
         )
       }

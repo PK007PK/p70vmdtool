@@ -8,7 +8,7 @@ import { TitleBar } from 'components/atoms/TitleBar/TitleBar';
 import { MainFinancialSystem } from 'components/organisms/MainFinancialSystem/MainFinancialSystem';
 
 function App() {
-  
+
   return (
     <AppProvider>
       <ThemeProvider theme={theme}>

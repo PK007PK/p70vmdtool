@@ -24,7 +24,6 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider value={{
       allBankRecords, 
-      setAllBankRecords, 
       resetAll,
       forceUpdate
     }}>

@@ -4,6 +4,10 @@ import { TranfsormStringIntoBoxes } from "components/atoms/TranfsormStringIntoBo
 import { elementToTitle } from "lib/elementToTitle";
 import { useContext } from "react";
 import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
+import { AiFillSound } from 'react-icons/ai';
+import { MdOutlineContentCopy } from 'react-icons/md';
+import { MdOutlineGppGood } from 'react-icons/md';
+import { BiMicrophone } from 'react-icons/bi';
 
 export const BankDetailsItem = (props) => {
     const {
@@ -11,7 +15,6 @@ export const BankDetailsItem = (props) => {
         bankDetailsElementValue, 
         handleClick, 
         bankRecord,
-        documentNumber
     } = props;
 
     const {
@@ -19,19 +22,23 @@ export const BankDetailsItem = (props) => {
         bankKeyDetected
     } = bankRecord.detectInIban()
 
+    const {
+        allBankRecords
+    } = useContext(AppContext);
+
+    const theSameAsMain = bankRecord[bankDetailsElementName] === allBankRecords[0][bankDetailsElementName];
+
     const TitleBar = () =>             
         <div className="titleBar">
             <h3 className="title">{elementToTitle(bankDetailsElementName)}</h3>
-            <span className="count">
-                Count: {bankDetailsElementValue === "-" ? "-" : bankDetailsElementValue.length}
-            </span>
         </div>
 
-    // const theSameAsMain = bankRecord[bankDetailsElementName] = "xxx"
+    var msg = new SpeechSynthesisUtterance();
+    msg.text = bankDetailsElementValue;
 
-    // const {
-    //     allBankRecords
-    //    } = useContext(AppContext);
+    const voiceStart = () => {
+        window.speechSynthesis.speak(msg);
+    }
 
     return (
         <BankDetailsItemStyle>
@@ -41,9 +48,19 @@ export const BankDetailsItem = (props) => {
                     bankDetailsElementName={bankDetailsElementName} 
                     bankDetailsElementValue={bankDetailsElementValue}
                     bankRecord={bankRecord}
+                    theSameAsMain={theSameAsMain}
                 />
             </button>
-
+            <div className="buttonBar">
+                <button onClick={voiceStart}><AiFillSound /></button>
+                <button ><BiMicrophone /></button>
+                <button ><MdOutlineContentCopy /></button>
+                <button ><MdOutlineGppGood /></button>
+                {/* <span className="count">
+                    Characters: {bankDetailsElementValue === "-" ? "-" : bankDetailsElementValue.length}
+                </span> */}
+            </div>
+ 
             {bankDetailsElementName === "iban" && 
                 <IbanStatus 
                     bankKeyDetected={bankKeyDetected} 
