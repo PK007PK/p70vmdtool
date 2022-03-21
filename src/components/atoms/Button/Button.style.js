@@ -10,5 +10,11 @@ export const ButtonStyle = styled.button`
     font-size: var(--fontSizeSmall);
     line-height: 20px;
     display: inline;
+
+    &:hover {
+        background-color: var(--colorOk);
+        text-decoration: none;
+        color: var(--mainTextColor);
+    }
 `
 

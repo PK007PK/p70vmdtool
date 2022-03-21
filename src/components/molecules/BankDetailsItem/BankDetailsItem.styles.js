@@ -25,6 +25,19 @@ export const BankDetailsItemStyle = styled.div`
         color: var(--mainTextColor);
     }
 
+    .buttonBar {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 5px;
+        
+        & > * {
+            color: white;
+            margin: 0;
+            margin-left: 5px;
+        }
+    }
+
     p {}
     button {
         display: flex;

@@ -17,7 +17,7 @@ export const StyledSpan = styled.span`
     };
 
     border: 1px solid gray;
-    color: var(--mainTextColor);
+    color: ${({theSameAsMain}) => theSameAsMain ? "var(--mainTextColor)" : "red" };
 
     &:hover {
         color: white;

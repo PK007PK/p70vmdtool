@@ -1,7 +1,6 @@
 import { createContext, useCallback, useState } from 'react';
-import { AdditionalBankRecord } from 'records/additionalBankRecord';
 import { BankRecord } from 'records/bank.record.ts';
-import { BankRecordParts } from 'types/BankRecordParts';
+import { AcceptedDocuments } from 'types/AcceptedDocuments';
 
 export const AppContext = createContext();
 
@@ -10,18 +9,22 @@ const AppProvider = ({ children }) => {
   const [, updateState] = useState();
   const forceUpdate = useCallback(() => updateState({}), []);
 
-  const [bankRecord, setBankRecord] = useState(new BankRecord({}));
-
-  const resetBankRecord = () => setBankRecord(new BankRecord({}));
+  const [allBankRecords, setAllBankRecords] = useState([
+    new BankRecord({documentType: AcceptedDocuments.Sap}),
+    new BankRecord({documentType: AcceptedDocuments.Document}),
+    new BankRecord({documentType: AcceptedDocuments.Cfin}),
+  ]);
   
-  const [allAnaliticRecords, setAllAnaliticRecords] = useState(
-    Object.values(BankRecordParts).map(element => new AdditionalBankRecord({type: element}))
-  )
+  const resetAll = () => setAllBankRecords([
+    new BankRecord({documentType: AcceptedDocuments.Sap}),
+    new BankRecord({documentType: AcceptedDocuments.Document}),
+    new BankRecord({documentType: AcceptedDocuments.Cfin}),
+  ]);
 
   return (
     <AppContext.Provider value={{
-      bankRecord, setBankRecord, resetBankRecord,
-      allAnaliticRecords, 
+      allBankRecords, 
+      resetAll,
       forceUpdate
     }}>
       {children}
