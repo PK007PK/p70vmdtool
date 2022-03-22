@@ -4,8 +4,8 @@ import GlobalStyles from 'styles/GlobalStyles';
 import theme from 'assets/Theme';
 
 import Layout from 'components/atoms/Layout/Layout';
-import { TitleBar } from 'components/atoms/TitleBar/TitleBar';
 import { MainFinancialSystem } from 'components/organisms/MainFinancialSystem/MainFinancialSystem';
+import { AppLogoBar } from 'components/atoms/AppLogoBar/AppLogoBar';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         <Layout>
-          <TitleBar />
+          <AppLogoBar />
           <MainFinancialSystem main documentNumber={0}/>
           <MainFinancialSystem documentNumber={1}/>
           <MainFinancialSystem documentNumber={2}/>

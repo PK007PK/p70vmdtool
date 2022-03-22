@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TitleBarStyle = styled.div`
+export const AppLogoBarStyle = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;

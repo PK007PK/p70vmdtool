@@ -15,7 +15,7 @@ const colors = `
 const spaces = `
     --mainWidth: 386px;
     --maxWidth: #1000px;
-    --componentsPaddings: 5px 5px;
+    --componentsPaddings: 15px 5px;
     --componentsMargins: 45px 0px;
 `
 
