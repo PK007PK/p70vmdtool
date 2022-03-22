@@ -29,6 +29,8 @@ export const BankDetailsItem = (props) => {
             <BankDetailsItemTitle 
                 bankDetailsElementName={bankDetailsElementName}
                 bankDetailsElementValue={bankDetailsElementValue}
+                system={bankRecord.documentType}
+                className="titleBar"
             />
             <button 
                 id={bankDetailsElementName} 

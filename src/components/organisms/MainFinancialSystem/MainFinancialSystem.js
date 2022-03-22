@@ -26,7 +26,7 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
   const TitleBar = () =>       
     <div className="componentTitleBar">
       <h3 className="title">{bankRecord.documentType}</h3>
-      <div>
+      <div className="buttonsBar">
         {main && <Button onClick={resetAll}>Reset All</Button>}
         <Button onClick={handleReset}>Reset</Button>
         <Button>Paste All</Button>

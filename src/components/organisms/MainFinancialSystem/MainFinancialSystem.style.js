@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
 export const MainFinancialSystemStyle = styled.div`
+    @keyframes emerge {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
     border: 1px solid black;
     max-width: 386px;
     position: relative;
@@ -21,6 +30,10 @@ export const MainFinancialSystemStyle = styled.div`
         color: var(--mainTextColor);
     }
 
+    .buttonsBar {
+        display: none;
+    }
+
     .bottomButtonBar {
         position: absolute;
         right: 0;
@@ -32,4 +45,10 @@ export const MainFinancialSystemStyle = styled.div`
             margin-left: 4px;
         }
     }
+
+    &:hover .buttonsBar {
+        display: flex;
+        animation: var(--animation); 
+    }
+
 `
