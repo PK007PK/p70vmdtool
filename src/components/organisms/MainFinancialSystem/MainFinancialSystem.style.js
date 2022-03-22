@@ -35,10 +35,10 @@ export const MainFinancialSystemStyle = styled.div`
     }
 
     .bottomButtonBar {
+        display: none;
         position: absolute;
         right: 0;
-        bottom: -30px;
-        display: flex;
+        bottom: 0px;
         align-items: center;
 
         & > * {
@@ -46,7 +46,8 @@ export const MainFinancialSystemStyle = styled.div`
         }
     }
 
-    &:hover .buttonsBar {
+    &:hover .buttonsBar,
+    &:hover .bottomButtonBar {
         display: flex;
         animation: var(--animation); 
     }

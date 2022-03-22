@@ -1,6 +1,8 @@
+import { AppContext } from "AppContext"
 import { copyToClipboard } from "lib/copyToClipboard"
 import { elementToTitle } from "lib/elementToTitle"
 import { readAloud } from "lib/readAloud"
+import { useContext } from "react"
 import { AiFillSound } from "react-icons/ai"
 import { MdOutlineContentCopy, MdOutlineGppGood } from "react-icons/md"
 import { defElemValue } from "types/defElemValue"
@@ -13,6 +15,10 @@ export const BankDetailsItemTitle = (props) => {
         system,
         className
     } = props
+
+    const {
+        allBankRecords, 
+       } = useContext(AppContext);
 
     return (
         <BankDetailsItemStyle className={className}>

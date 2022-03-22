@@ -4,6 +4,7 @@ import { TranfsormStringIntoBoxes } from "components/atoms/TranfsormStringIntoBo
 import { useContext } from "react";
 import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
 import { BankDetailsItemTitle } from "../BankDetailsItemTitle/BankDetailsItemTitle";
+import { defElemValue } from "types/defElemValue";
 
 export const BankDetailsItem = (props) => {
     const {
@@ -46,6 +47,7 @@ export const BankDetailsItem = (props) => {
             </button>
  
             {bankDetailsElementName === "iban" && 
+             bankDetailsElementValue !== defElemValue &&
                 <IbanStatus 
                     bankKeyDetected={bankKeyDetected} 
                     bankAccountDetected={bankAccountDetected} 
