@@ -8,6 +8,7 @@ import { AiFillSound } from 'react-icons/ai';
 import { MdOutlineContentCopy } from 'react-icons/md';
 import { MdOutlineGppGood } from 'react-icons/md';
 import { BiMicrophone } from 'react-icons/bi';
+import { readAloud } from "lib/readAloud";
 
 export const BankDetailsItem = (props) => {
     const {
@@ -33,13 +34,6 @@ export const BankDetailsItem = (props) => {
             <h3 className="title">{elementToTitle(bankDetailsElementName)}</h3>
         </div>
 
-    var msg = new SpeechSynthesisUtterance();
-    msg.text = bankDetailsElementValue;
-
-    const voiceStart = () => {
-        window.speechSynthesis.speak(msg);
-    }
-
     return (
         <BankDetailsItemStyle>
             <TitleBar />
@@ -52,7 +46,7 @@ export const BankDetailsItem = (props) => {
                 />
             </button>
             <div className="buttonBar">
-                <button onClick={voiceStart}><AiFillSound /></button>
+                <button onClick={()=>readAloud(bankDetailsElementValue)}><AiFillSound /></button>
                 <button ><BiMicrophone /></button>
                 <button ><MdOutlineContentCopy /></button>
                 <button ><MdOutlineGppGood /></button>
