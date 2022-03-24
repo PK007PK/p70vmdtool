@@ -8,14 +8,16 @@ export const analizeString = () => {
             .split(" ")
             .filter(i => i !== "");
         
-        const searchingFor = ["Bank Key", "SWIFT/BIC", "Bank Account", "IBAN"];
+        const searchingFor = ["Key", "SWIFT/BIC", "Account", "IBAN"];
         const valuesFound = {};
 
         for (const element of searchingFor) {
             for (let i = 0; i < cleanedTextInTable.length; i++) {
+                console.log(element);
                 if (element === "IBAN" && element !== cleanedTextInTable[i + 1] && element === cleanedTextInTable[i]) {
                     let ibanValue = "";
                         for (let k = 1; k <= 8; k++) {
+                            console.log(ibanValue);
                             if (cleanedTextInTable[i + k]) ibanValue = ibanValue + cleanedTextInTable[i + k];
                         }
                     valuesFound[element] = ibanValue;
