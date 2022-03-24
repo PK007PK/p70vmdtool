@@ -6,6 +6,7 @@ import { handleClick } from "lib/handleClick";
 import { Button } from "components/atoms/Button/Button";
 import { SwiftRefLink } from "components/molecules/SwiftRefLink/SwiftRefLink";
 import { MainFinancialSystemStyle } from "./MainFinancialSystem.style";
+import { analizeString } from "lib/analizeString";
 
 export const MainFinancialSystem = ({main, documentNumber}) => {
 
@@ -29,7 +30,7 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
       <div className="buttonsBar">
         {main && <Button onClick={resetAll}>Reset All</Button>}
         <Button onClick={handleReset}>Reset</Button>
-        <Button>Paste All</Button>
+        <Button onClick={analizeString}>Paste All</Button>
       </div>
     </div>
 
