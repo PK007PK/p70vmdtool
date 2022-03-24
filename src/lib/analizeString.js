@@ -6,8 +6,10 @@ export const analizeString = () => {
         }
         const cleanedTextInTable = text
             .split(" ")
-            // .split("/r")
-            // .split("/n")
+            .join(',')
+            .split("/r")
+            .join(',')
+            .split("/n")
             .filter(i => i !== "");
         console.log(cleanedTextInTable);
 
