@@ -5,7 +5,7 @@ export const analizeString = () => {
           return;
         }
         const cleanedTextInTable = text
-            .split(" ")
+            .split(" ", "/r", "/n")
             .filter(i => i !== "");
         
         const searchingFor = ["Key", "SWIFT/BIC", "Account", "IBAN"];
