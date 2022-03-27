@@ -4,14 +4,10 @@ export const analizeString = () => {
         if (text === "") {
           return;
         }
+        const re = /\s|\n|\t|\r/g
         const cleanedTextInTable = text
-            .split(" ")
-            .join(',')
-            .split("/r")
-            .join(',')
-            .split("/n")
+            .split(re)
             .filter(i => i !== "");
-        console.log(cleanedTextInTable);
 
         const searchingFor = ["Key", "SWIFT/BIC", "Account", "IBAN"];
         const valuesFound = {};

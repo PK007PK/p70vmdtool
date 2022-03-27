@@ -17,7 +17,7 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
       } = useContext(AppContext);
 
   const bankRecord = allBankRecords[documentNumber];
-  console.log(bankRecord);
+  // console.log(bankRecord);
 
   const handleReset = () => {
     bankRecord.reset();
