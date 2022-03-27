@@ -1,4 +1,4 @@
-export const handleClick = (e, record, updateFunction) => {
+export const pasteOneString = (e, record, updateFunction) => {
     navigator.clipboard.readText()
       .then(text => {
         if (text === "") {

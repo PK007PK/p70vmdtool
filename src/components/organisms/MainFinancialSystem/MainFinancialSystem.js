@@ -2,11 +2,11 @@ import { useContext } from "react";
 import { AppContext } from "AppContext";
 import { BankRecordElements } from "types/BankRecordElements";
 import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
-import { handleClick } from "lib/handleClick";
+import { pasteOneString } from "lib/pasteOneString";
 import { Button } from "components/atoms/Button/Button";
 import { SwiftRefLink } from "components/molecules/SwiftRefLink/SwiftRefLink";
 import { MainFinancialSystemStyle } from "./MainFinancialSystem.style";
-import { analizeString } from "lib/analizeString";
+import { pasteAll } from "lib/pasteAll";
 
 export const MainFinancialSystem = ({main, documentNumber}) => {
 
@@ -17,7 +17,6 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
       } = useContext(AppContext);
 
   const bankRecord = allBankRecords[documentNumber];
-  // console.log(bankRecord);
 
   const handleReset = () => {
     bankRecord.reset();
@@ -30,7 +29,7 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
       <div className="buttonsBar">
         {main && <Button onClick={resetAll}>Reset All</Button>}
         <Button onClick={handleReset}>Reset</Button>
-        <Button onClick={analizeString}>Paste All</Button>
+        <Button onClick={ ()=> pasteAll(bankRecord, forceUpdate)}>Paste All</Button>
       </div>
     </div>
 
@@ -44,7 +43,7 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
             bankRecord={bankRecord}
             bankDetailsElementName={bankDetailsElementName} 
             bankDetailsElementValue={bankDetailsElementValue} 
-            handleClick={(e) => handleClick(e, bankRecord, forceUpdate)}
+            handleClick={(e) => pasteOneString(e, bankRecord, forceUpdate)}
           />
         )
       }
