@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainFinancialSystemStyle = styled.div`
+export const OneFinancialSystemDataStyle = styled.div`
     @keyframes emerge {
         0% {
             opacity: 0;

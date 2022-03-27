@@ -5,10 +5,10 @@ import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetail
 import { pasteOneString } from "lib/pasteOneString";
 import { Button } from "components/atoms/Button/Button";
 import { SwiftRefLink } from "components/molecules/SwiftRefLink/SwiftRefLink";
-import { MainFinancialSystemStyle } from "./MainFinancialSystem.style";
+import { OneFinancialSystemDataStyle } from "./OneFinancialSystemData.style";
 import { pasteAll } from "lib/pasteAll";
 
-export const MainFinancialSystem = ({main, documentNumber}) => {
+export const OneFinancialSystemData = ({main, systemNumber}) => {
 
   const {
        allBankRecords, 
@@ -16,7 +16,7 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
        resetAll,
       } = useContext(AppContext);
 
-  const bankRecord = allBankRecords[documentNumber];
+  const bankRecord = allBankRecords[systemNumber];
 
   const handleReset = () => {
     bankRecord.reset();
@@ -55,9 +55,9 @@ export const MainFinancialSystem = ({main, documentNumber}) => {
     </div>
 
   return (
-    <MainFinancialSystemStyle>
+    <OneFinancialSystemDataStyle>
       <TitleBar />
       <AllBankDetails />
       {bottomBar}
-    </MainFinancialSystemStyle>
+    </OneFinancialSystemDataStyle>
   )}
