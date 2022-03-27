@@ -15,7 +15,7 @@ export const analizeString = () => {
         for (const element of searchingFor) {
             for (let i = 0; i < cleanedTextInTable.length; i++) {
                 if (element === "IBAN" && element !== cleanedTextInTable[i + 1] && element === cleanedTextInTable[i]) {
-                    valuesFound[element] = cleanedTextInTable[i];
+                    valuesFound[element] = cleanedTextInTable[i + 1];
                 } else if (element === cleanedTextInTable[i]) {
                     valuesFound[element] = cleanedTextInTable[i + 1]
                 }
