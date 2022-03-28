@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { defElemValue } from "types/defElemValue";
 import { OpenIbanStyle } from "./OpenIban.style";
 // https://openiban.com/
 
-export const OpenIban = ({iban, swift}) => {
+export const OpenIban = ({iban}) => {
     const [data, setData] = useState(null);
 
     useEffect(()=>{
@@ -15,12 +16,14 @@ export const OpenIban = ({iban, swift}) => {
 
     console.log(data);
     if (!data) {
-        return <p>Loading data</p>
+        return <p>Loading data...</p>
     }
 
     return (
         <OpenIbanStyle >
-            <p>API: {data.bankData.bic}</p>
+            {iban === defElemValue ?
+                null :
+                <p>API: {data?.bankData?.bic ?? "Cannot get BIC. No information available"}</p>}
         </OpenIbanStyle>
     )
 }

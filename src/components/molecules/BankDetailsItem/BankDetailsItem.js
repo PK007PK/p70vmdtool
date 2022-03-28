@@ -20,7 +20,8 @@ export const BankDetailsItem = (props) => {
     } = bankRecord.detectInIban()
 
     const {
-        allBankRecords
+        allBankRecords,
+        forceUpdate,
     } = useContext(AppContext);
 
     const theSameAsMain = bankRecord[bankDetailsElementName] === allBankRecords[0][bankDetailsElementName];
@@ -32,6 +33,9 @@ export const BankDetailsItem = (props) => {
                 bankDetailsElementValue={bankDetailsElementValue}
                 system={bankRecord.documentType}
                 className="titleBar"
+                currentRecord={bankRecord}
+                mainRecord={allBankRecords[0]}
+                forceUpdate={forceUpdate}
             />
             <button 
                 id={bankDetailsElementName} 

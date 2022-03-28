@@ -1,3 +1,4 @@
+import { copyFromMainFinSystem } from "lib/copyFromMainFinSystem"
 import { copyToClipboard } from "lib/copyToClipboard"
 import { elementToTitle } from "lib/elementToTitle"
 import { readAloud } from "lib/readAloud"
@@ -12,7 +13,10 @@ export const BankDetailsItemTitle = (props) => {
         bankDetailsElementName, 
         bankDetailsElementValue,
         system,
-        className
+        className,
+        currentRecord,
+        mainRecord,
+        forceUpdate
     } = props
 
     return (
@@ -41,6 +45,7 @@ export const BankDetailsItemTitle = (props) => {
                     <button
                         title="Copy from SAP"
                         className="smallButton"
+                        onClick={()=>copyFromMainFinSystem(mainRecord, currentRecord, bankDetailsElementName, forceUpdate)}
                     >
                         <MdOutlineGppGood />
                     </button>
