@@ -35,7 +35,7 @@ export const BankDetailsItemTitle = (props) => {
                 {bankDetailsElementValue !== defElemValue &&
                     <button 
                         onClick={()=>copyToClipboard(bankDetailsElementValue)}
-                        title="Copy"
+                        title="Copy to clipboard"
                         className="smallButton"
                     >
                         <MdOutlineContentCopy />

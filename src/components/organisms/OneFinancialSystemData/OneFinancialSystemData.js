@@ -39,9 +39,16 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
           </button>}
       </div>
       <div className="buttonsBar">
-        {main && <Button onClick={resetAll}>Reset All</Button>}
-        <Button onClick={handleReset}>Reset</Button>
-        <Button onClick={ ()=> pasteAll(bankRecord, forceUpdate)}>Paste All</Button>
+        {main && <Button onClick={resetAll} title="Reset app">Reset All</Button>}
+        <Button onClick={handleReset} title="Reset current financial system">Reset</Button>
+        {bankRecord.documentType !== AcceptedDocuments.Document &&
+          <Button 
+            onClick={ ()=> pasteAll(bankRecord, forceUpdate)}
+            title="Paste data from clipboard with kayword recognition"
+          >
+            Paste All
+          </Button>
+        }
       </div>
     </div>
 

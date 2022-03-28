@@ -41,6 +41,7 @@ export const BankDetailsItem = (props) => {
                 id={bankDetailsElementName} 
                 onClick={handleClick}
                 className="mainButton"
+                title="Click to insert data from clipboard"
             >
                 <TranfsormStringIntoBoxes 
                     bankDetailsElementName={bankDetailsElementName} 
