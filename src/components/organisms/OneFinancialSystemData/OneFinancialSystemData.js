@@ -29,7 +29,9 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
   const TitleBar = () =>       
     <div className="componentTitleBar">
       <div className="title">
-        <h3>{bankRecord.documentType}</h3>
+        <h3>
+        {main && "Main fs: "}{bankRecord.documentType}
+        </h3>
         {bankRecord.documentType !== AcceptedDocuments.Document && 
           <button 
             onClick={changeMainFsBetweenRecords}
@@ -44,9 +46,9 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
         {bankRecord.documentType !== AcceptedDocuments.Document &&
           <Button 
             onClick={ ()=> pasteAll(bankRecord, forceUpdate)}
-            title="Paste data from clipboard with kayword recognition"
+            title="Paste data from clipboard copied form fin sys, with kayword recognition"
           >
-            Paste All
+            CRM paste
           </Button>
         }
       </div>

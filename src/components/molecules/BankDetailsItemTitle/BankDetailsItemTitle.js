@@ -9,6 +9,7 @@ import { SwiftRefLink } from "../SwiftRefLink/SwiftRefLink"
 import { BankDetailsItemStyle } from "./BankDetailsItemTitleStyle"
 
 export const BankDetailsItemTitle = (props) => {
+    
     const {
         bankDetailsElementName, 
         bankDetailsElementValue,
@@ -17,7 +18,7 @@ export const BankDetailsItemTitle = (props) => {
         currentRecord,
         mainRecord,
         forceUpdate
-    } = props
+    } = props;
 
     return (
         <BankDetailsItemStyle className={className}>
@@ -41,7 +42,7 @@ export const BankDetailsItemTitle = (props) => {
                         <MdOutlineContentCopy />
                     </button>
                 }
-                {system !== "SAP" && mainRecord[bankDetailsElementName] !== defElemValue &&
+                {system !== mainRecord.documentType && mainRecord[bankDetailsElementName] !== defElemValue &&
                     <button
                         title="Copy from SAP"
                         className="smallButton"
@@ -50,7 +51,7 @@ export const BankDetailsItemTitle = (props) => {
                         <MdOutlineGppGood />
                     </button>
                 }
-                {system === "SAP" && bankDetailsElementName === "iban" &&
+                {system === mainRecord.documentType && bankDetailsElementName === "iban" &&
                     <SwiftRefLink className="smallButton" />
                 }
             </div>
