@@ -4,6 +4,7 @@ import { readAloud } from "lib/readAloud"
 import { AiFillSound } from "react-icons/ai"
 import { MdOutlineContentCopy, MdOutlineGppGood } from "react-icons/md"
 import { defElemValue } from "types/defElemValue"
+import { SwiftRefLink } from "../SwiftRefLink/SwiftRefLink"
 import { BankDetailsItemStyle } from "./BankDetailsItemTitleStyle"
 
 export const BankDetailsItemTitle = (props) => {
@@ -43,6 +44,9 @@ export const BankDetailsItemTitle = (props) => {
                     >
                         <MdOutlineGppGood />
                     </button>
+                }
+                {system === "SAP" && bankDetailsElementName === "iban" &&
+                    <SwiftRefLink className="smallButton" />
                 }
             </div>
         </BankDetailsItemStyle>

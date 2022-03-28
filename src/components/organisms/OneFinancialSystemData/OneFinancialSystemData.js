@@ -7,6 +7,7 @@ import { Button } from "components/atoms/Button/Button";
 import { SwiftRefLink } from "components/molecules/SwiftRefLink/SwiftRefLink";
 import { OneFinancialSystemDataStyle } from "./OneFinancialSystemData.style";
 import { pasteAll } from "lib/pasteAll";
+import { OpenIban } from "components/atoms/OpenIban/OpenIban";
 
 export const OneFinancialSystemData = ({main, systemNumber}) => {
 
@@ -38,20 +39,20 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
       {Object.entries(bankRecord)
         .filter(item => item[0] in BankRecordElements)
         .map(([bankDetailsElementName,bankDetailsElementValue]) => 
-          <BankDetailsItem 
-            key={bankDetailsElementName} 
-            bankRecord={bankRecord}
-            bankDetailsElementName={bankDetailsElementName} 
-            bankDetailsElementValue={bankDetailsElementValue} 
-            handleClick={(e) => pasteOneString(e, bankRecord, forceUpdate)}
-          />
+            <BankDetailsItem 
+              key={bankDetailsElementName} 
+              bankRecord={bankRecord}
+              bankDetailsElementName={bankDetailsElementName} 
+              bankDetailsElementValue={bankDetailsElementValue} 
+              handleClick={(e) => pasteOneString(e, bankRecord, forceUpdate)}
+            />
         )
       }
     </>
 
   const bottomBar = main &&
-    <div className="bottomButtonBar">
-      <SwiftRefLink />
+    <div className="apiBar">
+      <OpenIban iban={bankRecord.iban}/>
     </div>
 
   return (

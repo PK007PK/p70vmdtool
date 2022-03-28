@@ -2,7 +2,7 @@ import { AppContext } from "AppContext";
 import { Button } from "components/atoms/Button/Button";
 import { useContext} from "react";
 
-export const SwiftRefLink = () => {
+export const SwiftRefLink = ({className}) => {
     const {
         allBankRecords
        } = useContext(AppContext);
@@ -11,7 +11,14 @@ export const SwiftRefLink = () => {
     
     return (
         allBankRecords[0].iban !== "-" 
-            ? <Button as="a" href={`${link}${allBankRecords[0].iban}`}>Check in SwiftRef</Button> 
+            ? <Button 
+                href={`${link}${allBankRecords[0].iban}`}
+                as="a" 
+                target="blank" 
+                className={className} 
+            >
+                Check in SwiftRef
+            </Button>
             : null
     )
 }

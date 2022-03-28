@@ -27,6 +27,7 @@ export const BankDetailsItemStyle = styled.div`
     .smallButton {
         transition: var(--transition);
         cursor: pointer;
+        color: black;
 
         &:hover {
             background-color: var(--colorBankKey);

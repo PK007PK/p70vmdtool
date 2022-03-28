@@ -34,20 +34,11 @@ export const OneFinancialSystemDataStyle = styled.div`
         display: none;
     }
 
-    .bottomButtonBar {
-        display: none;
-        position: absolute;
-        right: 0;
-        bottom: 0px;
+    .apiBar {
         align-items: center;
-
-        & > * {
-            margin-left: 4px;
-        }
     }
 
-    &:hover .buttonsBar,
-    &:hover .bottomButtonBar {
+    &:hover .buttonsBar {
         display: flex;
         animation: var(--animation); 
     }
