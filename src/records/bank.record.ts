@@ -27,7 +27,13 @@ export class BankRecord {
     }
 
     insert(key: BankRecordElements, value: string) {
-        this[key] = cleanString(value);
+        // Cleaning data from fin systems can prevent fin sys error detectiong
+        if (this.documentType === AcceptedDocuments.Document) {
+            this[key] = cleanString(value)
+        } else {
+            this[key] = value;
+        };
+        
     }
 
     detectInIban() {
