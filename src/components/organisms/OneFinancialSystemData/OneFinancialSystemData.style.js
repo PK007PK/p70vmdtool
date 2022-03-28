@@ -28,6 +28,12 @@ export const OneFinancialSystemDataStyle = styled.div`
 
     .title {
         color: var(--mainTextColor);
+        display: flex;
+        align-items: center;
+
+        & > * {
+            margin-right: 5px;
+        }
     }
 
     .buttonsBar {

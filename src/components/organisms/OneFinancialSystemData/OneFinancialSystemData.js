@@ -4,10 +4,11 @@ import { BankRecordElements } from "types/BankRecordElements";
 import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
 import { pasteOneString } from "lib/pasteOneString";
 import { Button } from "components/atoms/Button/Button";
-import { SwiftRefLink } from "components/molecules/SwiftRefLink/SwiftRefLink";
 import { OneFinancialSystemDataStyle } from "./OneFinancialSystemData.style";
 import { pasteAll } from "lib/pasteAll";
 import { OpenIban } from "components/atoms/OpenIban/OpenIban";
+import { HiOutlineSwitchVertical } from 'react-icons/hi';
+import { AcceptedDocuments } from "types/AcceptedDocuments";
 
 export const OneFinancialSystemData = ({main, systemNumber}) => {
 
@@ -15,6 +16,7 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
        allBankRecords, 
        forceUpdate,
        resetAll,
+       changeMainFsBetweenRecords,
       } = useContext(AppContext);
 
   const bankRecord = allBankRecords[systemNumber];
@@ -26,7 +28,16 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
 
   const TitleBar = () =>       
     <div className="componentTitleBar">
-      <h3 className="title">{bankRecord.documentType}</h3>
+      <div className="title">
+        <h3>{bankRecord.documentType}</h3>
+        {bankRecord.documentType !== AcceptedDocuments.Document && 
+          <button 
+            onClick={changeMainFsBetweenRecords}
+            title="Choose which financial system is main"  
+          >
+            <HiOutlineSwitchVertical />
+          </button>}
+      </div>
       <div className="buttonsBar">
         {main && <Button onClick={resetAll}>Reset All</Button>}
         <Button onClick={handleReset}>Reset</Button>

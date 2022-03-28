@@ -21,11 +21,30 @@ const AppProvider = ({ children }) => {
     new BankRecord({documentType: AcceptedDocuments.Cfin}),
   ]);
 
+  const changeMainFsBetweenRecords = () => {
+    if (allBankRecords[0].documentType === AcceptedDocuments.Cfin) {
+      setAllBankRecords((prev)=>[
+        ...prev,
+        allBankRecords[0].documentType = AcceptedDocuments.Sap,
+        allBankRecords[2].documentType = AcceptedDocuments.Cfin,
+        ]
+      )
+    } else {
+      setAllBankRecords((prev)=>[
+        ...prev,
+        allBankRecords[0].documentType = AcceptedDocuments.Cfin,
+        allBankRecords[2].documentType = AcceptedDocuments.Sap,
+        ]
+      )
+    }
+  }
+
   return (
     <AppContext.Provider value={{
       allBankRecords, 
       resetAll,
-      forceUpdate
+      forceUpdate,
+      changeMainFsBetweenRecords
     }}>
       {children}
     </AppContext.Provider>

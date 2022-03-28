@@ -16,7 +16,7 @@ export const BankDetailsItem = (props) => {
 
     const {
         bankAccountDetected, 
-        bankKeyDetected
+        bankKeyDetected,
     } = bankRecord.detectInIban()
 
     const {
