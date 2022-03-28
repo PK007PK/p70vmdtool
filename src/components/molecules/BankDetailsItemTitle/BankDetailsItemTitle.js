@@ -41,7 +41,7 @@ export const BankDetailsItemTitle = (props) => {
                         <MdOutlineContentCopy />
                     </button>
                 }
-                {system !== "SAP" &&
+                {system !== "SAP" && mainRecord[bankDetailsElementName] !== defElemValue &&
                     <button
                         title="Copy from SAP"
                         className="smallButton"

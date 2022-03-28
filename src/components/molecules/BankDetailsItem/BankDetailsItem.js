@@ -49,7 +49,6 @@ export const BankDetailsItem = (props) => {
                     theSameAsMain={theSameAsMain}
                 />
             </button>
- 
             {bankDetailsElementName === "iban" && 
              bankDetailsElementValue !== defElemValue &&
                 <IbanStatus 
