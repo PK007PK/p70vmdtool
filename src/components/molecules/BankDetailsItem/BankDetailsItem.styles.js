@@ -7,7 +7,7 @@ export const BankDetailsItemStyle = styled.div`
         display: flex;
         flex-wrap: wrap;
         padding: 2px;
-        background-color: #455A64;
+        background-color: var(--componentsBackground);
         margin-top: 2px;
         border: none; 
     }

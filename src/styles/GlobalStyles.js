@@ -8,9 +8,11 @@ const initialConfig = `
 const colors = `
     --mainTextColor: #ECEFF1;
     --colorBankKey: #004D40;
-    --colorBankAccount: #827717;
-    --colorOk: #388E3C;
+    --colorBankAccount: #0277BD;
+    --colorOk: #26A69A;
     --colorProblem: #E65100;
+    --darkBackground: #263238;
+    --componentsBackground: #004D40;
 `
 const spaces = `
     --mainWidth: 386px;
@@ -55,7 +57,7 @@ body {
     margin: 0;
     font-size: 1.5em;
     line-height: 2;
-    background-color: #455A64;
+    background-color: var(--darkBackground);
 }
 
 a {

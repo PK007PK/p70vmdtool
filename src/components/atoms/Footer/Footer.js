@@ -1,0 +1,1 @@
+export const Footer = () => <div><p>&copy; PK</p></div>

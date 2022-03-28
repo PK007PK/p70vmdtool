@@ -7,6 +7,7 @@ import Layout from 'components/atoms/Layout/Layout';
 import { AppLogoBar } from 'components/atoms/AppLogoBar/AppLogoBar';
 import { OneFinancialSystemData } from 'components/organisms/OneFinancialSystemData/OneFinancialSystemData';
 import { Summary } from 'components/atoms/Summary/Summary';
+import { Footer } from 'components/atoms/Footer/Footer';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <OneFinancialSystemData systemNumber={1}/>
           <OneFinancialSystemData systemNumber={2}/>
           <Summary />
+          <Footer />
         </Layout>
       </ThemeProvider>
     </AppProvider>

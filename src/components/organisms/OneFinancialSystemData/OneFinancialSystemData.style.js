@@ -10,11 +10,12 @@ export const OneFinancialSystemDataStyle = styled.div`
         }
     }
 
-    border: 1px solid black;
+    /* border: 1px solid black; */
     max-width: 386px;
     position: relative;
     padding: var(--componentsPaddings);
     margin-bottom: 75px;
+    background-color: var(--componentsBackground);
 
     .componentTitleBar {
         display: flex;
