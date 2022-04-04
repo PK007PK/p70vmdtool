@@ -8,7 +8,7 @@ export const SummaryStyle = styled.div`
     /* border: var(--componentsBorder); */
     background-color: white;
     margin-bottom: 50px;
-    position: absolute;
+    position: relative;
 
     .title {
         position: absolute;

@@ -1,14 +1,14 @@
-import { FaUserNinja } from 'react-icons/fa';
+import { BsShield } from 'react-icons/bs';
 import { AppLogoBarStyle } from "./AppLogoBar.style";
 
 export const AppLogoBar = () => {
 
     return (
         <AppLogoBarStyle>
-            <div className="logoBox">
-                <FaUserNinja className="logo"/>
-                <h1>IBAN<span>defender</span></h1>
-            </div>
+                {/* <FaUserNinja className="logo"/> */}
+                <BsShield className="logo"/>
+                <h1 className="sign">IBAN
+                <span>defender</span></h1>
         </AppLogoBarStyle>
     )
 }
