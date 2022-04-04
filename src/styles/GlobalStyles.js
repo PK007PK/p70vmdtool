@@ -15,7 +15,7 @@ const colors = `
     --componentsBackground: #004D40;
 `
 const spaces = `
-    --mainWidth: 386px;
+    --mainWidth: 384px;
     --maxWidth: #1000px;
     --componentsPaddings: 35px 5px 15px;
     --componentsMargins: 45px 0px;

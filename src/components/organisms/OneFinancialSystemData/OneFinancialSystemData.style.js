@@ -11,7 +11,7 @@ export const OneFinancialSystemDataStyle = styled.div`
     }
 
     /* border: 1px solid black; */
-    max-width: 386px;
+    max-width: var(--mainWidth);
     position: relative;
     padding: var(--componentsPaddings);
     margin-bottom: 75px;

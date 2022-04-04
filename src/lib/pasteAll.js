@@ -24,7 +24,7 @@ export const pasteAll = (record, updateFunction) => {
                 }
             }
         }
-        console.log(valuesFound);
+
         if (valuesFound.Key) {
           record.insert("bankKey", valuesFound.Key)
         };

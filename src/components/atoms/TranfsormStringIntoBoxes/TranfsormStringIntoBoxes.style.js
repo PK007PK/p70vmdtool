@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const StyledSpan = styled.span`
     display: flex;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     justify-content: center;
     align-items: center;
     font-size: 20px;
@@ -19,16 +19,13 @@ export const StyledSpan = styled.span`
     border: 1px solid gray;
     color: ${({theSameAsMain}) => theSameAsMain ? "var(--mainTextColor)" : "red" };
 
+    margin-top: 2px;
+    :nth-child(4n) {
+        margin-right: 2px;
+    }
+
     &:hover {
         color: white;
         background-color: black;
     }
-
-    /* .isBankKey {
-        background-color: blue;
-    }
-
-    .isBankAccount {
-        background-color: red
-    } */
 `
