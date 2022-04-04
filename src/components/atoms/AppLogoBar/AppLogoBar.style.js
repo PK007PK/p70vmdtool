@@ -11,7 +11,7 @@ export const AppLogoBarStyle = styled.div`
     /* height: 70px; */
     width: 90px;
     height: 90px;
-    margin-top: 10px;
+    margin-top: 20px;
     /* background: white; */
 
     .logo {
