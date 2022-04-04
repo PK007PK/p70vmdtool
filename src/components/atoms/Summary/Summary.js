@@ -64,18 +64,14 @@ export const Summary = () => {
         ${allBankRecords[2].documentType}: ${allBankRecords[2].iban}.
         ` : ``
 
+    const errorReport = `${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`
+
+    console.log(errorReport);
+
     return (
         <SummaryStyle>
-            <h3 className="title">Errors detected</h3>
-            <p>{`
-                ${docAccountCheck}
-                ${docIbanCheck}
-                ${docSwiftCheck}
-                ${crossSystemsBankKeyCheck}
-                ${crossSystemsAccountCheck}
-                ${crossSystemsIbanCheck}
-                ${crossSystemsSwiftCheck}
-            `}</p>
+            <h3 className="title">Errors detected:</h3>
+            <p>{errorReport !=="" ? errorReport : "No problems detected"}</p>
         </SummaryStyle>
     )
 }
