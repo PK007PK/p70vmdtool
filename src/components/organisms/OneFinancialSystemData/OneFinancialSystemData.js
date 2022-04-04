@@ -58,7 +58,15 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
     <>
       {Object.entries(bankRecord)
         .filter(item => item[0] in BankRecordElements)
-        .map(([bankDetailsElementName,bankDetailsElementValue]) => 
+        .map(([bankDetailsElementName,bankDetailsElementValue]) => {
+            console.log(bankRecord.documentType);
+            if (bankRecord.documentType === AcceptedDocuments.Document && bankDetailsElementName === BankRecordElements.bankKey) {
+              return null;
+            }
+            if (bankRecord.documentType === AcceptedDocuments.Document && bankDetailsElementName === BankRecordElements.bankAccount) {
+              return null;
+            }
+            return (
             <BankDetailsItem 
               key={bankDetailsElementName} 
               bankRecord={bankRecord}
@@ -66,6 +74,8 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
               bankDetailsElementValue={bankDetailsElementValue} 
               handleClick={(e) => pasteOneString(e, bankRecord, forceUpdate)}
             />
+            )
+          }
         )
       }
     </>

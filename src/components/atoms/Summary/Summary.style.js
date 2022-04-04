@@ -7,7 +7,7 @@ export const SummaryStyle = styled.div`
     width: var(--mainWidth);
     /* border: var(--componentsBorder); */
     background-color: white;
-    margin-bottom: 50px;
+    /* margin-bottom: 30px; */
     position: relative;
 
     .title {
