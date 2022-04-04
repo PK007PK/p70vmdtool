@@ -42,7 +42,7 @@ export const Summary = () => {
         ` : ``
  
     //    Most ugly code ever
-    const crossSystemsBankKeyCheck = allBankRecords[2].bankAccount !== allBankRecords[0].bankKey && 
+    const crossSystemsBankKeyCheck = allBankRecords[2].bankKey !== allBankRecords[0].bankKey && 
         allBankRecords[2].bankKey !== defElemValue && allBankRecords[0].bankKey !== defElemValue ? 
         `Bank key in ${allBankRecords[0].documentType} is different from bank key in ${allBankRecords[2].documentType}.
         ${allBankRecords[0].documentType}: ${allBankRecords[0].bankKey}.
@@ -66,7 +66,7 @@ export const Summary = () => {
 
     return (
         <SummaryStyle>
-            <h3 className="title">Summary</h3>
+            <h3 className="title">Errors detected</h3>
             <p>{`
                 ${docAccountCheck}
                 ${docIbanCheck}
