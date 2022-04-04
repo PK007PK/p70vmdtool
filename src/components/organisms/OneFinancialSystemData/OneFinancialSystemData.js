@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "AppContext";
 import { BankRecordElements } from "types/BankRecordElements";
 import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
@@ -20,6 +20,8 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
       } = useContext(AppContext);
 
   const bankRecord = allBankRecords[systemNumber];
+
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleReset = () => {
     bankRecord.reset();
@@ -51,6 +53,7 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
             CRM paste
           </Button>
         }
+        <Button className="hideButton" onClick={()=>setIsVisible(false)}>X</Button>
       </div>
     </div>
 
@@ -80,13 +83,20 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
       }
     </>
 
+  // const HideButton = () => <button className="hideButton" onClick={()=>setIsVisible(false)}>X</button>
+
   const bottomBar = main &&
     <div className="apiBar">
       <OpenIban iban={bankRecord.iban}/>
     </div>
 
+  if (!isVisible) {
+    return null;
+  }
+
   return (
     <OneFinancialSystemDataStyle>
+      {/* <HideButton /> */}
       <TitleBar />
       <AllBankDetails />
       {bottomBar}

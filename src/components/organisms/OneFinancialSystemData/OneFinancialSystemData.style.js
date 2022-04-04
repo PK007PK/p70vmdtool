@@ -16,6 +16,7 @@ export const OneFinancialSystemDataStyle = styled.div`
     padding: var(--componentsPaddings);
     margin-bottom: 75px;
     background-color: var(--componentsBackground);
+    box-shadow: var(--bs);
 
     .componentTitleBar {
         display: flex;
@@ -40,6 +41,7 @@ export const OneFinancialSystemDataStyle = styled.div`
     .buttonsBar {
         display: none;
     }
+
 
     .apiBar {
         align-items: center;

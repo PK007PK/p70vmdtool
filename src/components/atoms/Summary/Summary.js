@@ -66,8 +66,6 @@ export const Summary = () => {
 
     const errorReport = `${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`
 
-    console.log(errorReport);
-
     return (
         <SummaryStyle>
             <h3 className="title">Errors detected:</h3>
