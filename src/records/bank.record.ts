@@ -3,10 +3,8 @@ import { AcceptedDocuments } from 'types/AcceptedDocuments';
 import { BankElementStartEnd } from 'types/BankElementStartEnd';
 import { BankRecordElements } from 'types/BankRecordElements';
 import { defElemValue } from 'types/defElemValue';
-import {v4 as uuid} from 'uuid';
 
 export class BankRecord {
-    public id?: string;
     public documentType: AcceptedDocuments;
     public bankKey: string;
     public bankAccount: string;
@@ -15,9 +13,8 @@ export class BankRecord {
 
     constructor(obj: Omit<BankRecord, 'insert' | 'detectInIban' | 'reset'>) {
 
-        const {id, documentType, bankKey, bankAccount, iban, swift} = obj;
+        const {documentType, bankKey, bankAccount, iban, swift} = obj;
         
-        this.id = id ?? uuid();
         this.documentType = documentType ?? AcceptedDocuments.Sap;
         this.bankKey = bankKey ?? defElemValue;
         this.bankAccount = bankAccount ?? defElemValue;

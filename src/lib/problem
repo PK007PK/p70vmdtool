@@ -1,0 +1,38 @@
+import { BankRecord } from "records/bank.record";
+import { BankRecordElements } from "types/BankRecordElements";
+
+export const pasteAll = (record: BankRecord, updateFunction: Function) => {
+    console.log(record);
+    navigator.clipboard.readText()
+      .then(text => {
+        if (text === "") {
+          return;
+        }
+
+        const re = /\s|\n|\t|\r/g
+
+        const cleanedTextInTable = text
+            .split(re)
+            .filter(i => i !== "");
+
+        const ValuesFound = {
+          Key: "", 
+          "SWIFT/BIC": "", 
+          Account: "", 
+          IBAN: "",
+        };
+
+        for (const element: keyof ValuesFound of Object.keys(ValuesFound)) {
+            for (let i = 0; i < cleanedTextInTable.length; i++) {
+                if (element === "IBAN" && element !== cleanedTextInTable[i + 1] && element === cleanedTextInTable[i]) {
+                    ValuesFound[element] = cleanedTextInTable[i + 1];
+                } else if (element[0] === cleanedTextInTable[i]) {
+                    ValuesFound[element] = cleanedTextInTable[i + 1]
+                }
+            }
+        }
+
+      })
+
+    navigator.clipboard.writeText("");
+}

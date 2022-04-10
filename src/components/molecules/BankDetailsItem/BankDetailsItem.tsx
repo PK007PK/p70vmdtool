@@ -37,7 +37,7 @@ export const BankDetailsItem = (props: Props) => {
     return (
         <BankDetailsItemStyle>
             <BankDetailsItemTitle 
-                bankDetailsElementName={bankDetailsElementName as keyof BankRecord}
+                bankDetailsElementName={bankDetailsElementName as keyof Omit<BankRecord, 'insert' | 'detectInIban' | 'reset' | 'documentType'>}
                 bankDetailsElementValue={bankDetailsElementValue}
                 system={bankRecord.documentType}
                 className="titleBar"

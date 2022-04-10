@@ -1,4 +1,6 @@
-export function elementToTitle(element) {
+import { BankRecord } from "records/bank.record";
+
+export function elementToTitle(element: keyof Omit<BankRecord, 'insert' | 'detectInIban' | 'reset' | 'documentType'>) {
     let title;
     switch (element) {
         case "bankKey":

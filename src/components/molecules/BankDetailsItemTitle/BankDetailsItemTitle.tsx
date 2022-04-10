@@ -13,7 +13,7 @@ import { BankDetailsItemStyle } from "./BankDetailsItemTitleStyle"
 interface Props extends CommonProps{
     mainRecord: BankRecord,
     currentRecord: BankRecord,
-    bankDetailsElementName: keyof BankRecord, 
+    bankDetailsElementName: keyof Omit<BankRecord, 'insert' | 'detectInIban' | 'reset' | 'documentType'>, 
     bankDetailsElementValue: string,
     system: string,
     forceUpdate: () => void,
@@ -56,7 +56,7 @@ export const BankDetailsItemTitle = (props: Props) => {
                     <button
                         title="Copy from SAP"
                         className="smallButton"
-                        onClick={()=>copyFromMainFinSystem(mainRecord, currentRecord, bankDetailsElementName, forceUpdate)}
+                        onClick={()=> copyFromMainFinSystem(mainRecord, currentRecord, bankDetailsElementName, forceUpdate)}
                     >
                         <MdOutlineGppGood />
                     </button>
