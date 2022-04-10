@@ -2,28 +2,27 @@ import { cleanString } from 'lib/cleanString';
 import { AcceptedDocuments } from 'types/AcceptedDocuments';
 import { BankElementStartEnd } from 'types/BankElementStartEnd';
 import { BankRecordElements } from 'types/BankRecordElements';
+import { defElemValue } from 'types/defElemValue';
 import {v4 as uuid} from 'uuid';
-
-const defaultValue = "-";
 
 export class BankRecord {
     public id?: string;
-    public documentType?: AcceptedDocuments;
+    public documentType: AcceptedDocuments;
     public bankKey: string;
     public bankAccount: string;
     public iban: string;
     public swift: string;
 
-    constructor(obj: Omit<BankRecord, 'insert' | 'detectInIban'>) {
+    constructor(obj: Omit<BankRecord, 'insert' | 'detectInIban' | 'reset'>) {
 
         const {id, documentType, bankKey, bankAccount, iban, swift} = obj;
         
         this.id = id ?? uuid();
         this.documentType = documentType ?? AcceptedDocuments.Sap;
-        this.bankKey = bankKey ?? defaultValue;
-        this.bankAccount = bankAccount ?? defaultValue;
-        this.iban = iban ?? defaultValue;
-        this.swift = swift ?? defaultValue;
+        this.bankKey = bankKey ?? defElemValue;
+        this.bankAccount = bankAccount ?? defElemValue;
+        this.iban = iban ?? defElemValue;
+        this.swift = swift ?? defElemValue;
     }
 
     insert(key: BankRecordElements, value: string) {
@@ -38,8 +37,8 @@ export class BankRecord {
 
     detectInIban() {
         const bankKeyPosition : BankElementStartEnd = {
-            start: defaultValue,
-            end: defaultValue,
+            start: defElemValue,
+            end: defElemValue,
         };
 
         if (this.iban.includes(this.bankKey)) {
@@ -48,8 +47,8 @@ export class BankRecord {
         }
 
         const bankAccountPosition : BankElementStartEnd = {
-            start: defaultValue,
-            end: defaultValue,
+            start: defElemValue,
+            end: defElemValue,
         }
 
         if (this.iban.includes(this.bankAccount)) {
@@ -66,9 +65,16 @@ export class BankRecord {
     }
 
     reset() {
-        this.bankKey = defaultValue;
-        this.bankAccount = defaultValue;
-        this.iban = defaultValue;
-        this.swift = defaultValue;
+        this.bankKey = defElemValue;
+        this.bankAccount = defElemValue;
+        this.iban = defElemValue;
+        this.swift = defElemValue;
     }
 }
+
+export const emptyBankRecord: Omit<BankRecord, 'documentType' | 'insert' | 'detectInIban' | 'reset'> = {
+    bankKey: defElemValue,
+    bankAccount: defElemValue,
+    iban: defElemValue,
+    swift: defElemValue,
+};
