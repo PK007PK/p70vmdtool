@@ -10,12 +10,11 @@ export const OneFinancialSystemDataStyle = styled.div`
         }
     }
 
-    /* border: 1px solid black; */
     max-width: var(--mainWidth);
-    position: relative;
     padding: var(--componentsPaddings);
-    margin-bottom: 75px;
     background-color: var(--componentsBackground);
+    position: relative;
+    margin-bottom: 75px;
     box-shadow: var(--bs);
 
     .componentTitleBar {
@@ -48,8 +47,8 @@ export const OneFinancialSystemDataStyle = styled.div`
     }
 
     &:hover .buttonsBar {
-        display: flex;
         animation: var(--animation); 
+        display: flex;
     }
 
 `

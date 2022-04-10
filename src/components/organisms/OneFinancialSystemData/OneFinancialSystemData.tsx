@@ -10,7 +10,7 @@ import { OpenIban } from "components/atoms/OpenIban/OpenIban";
 import { HiOutlineSwitchVertical } from 'react-icons/hi';
 import { AcceptedDocuments } from "types/AcceptedDocuments";
 
-export const OneFinancialSystemData = ({main, systemNumber}) => {
+export const OneFinancialSystemData = ({main, systemNumber}: {main: boolean, systemNumber: number}) => {
 
   const {
        allBankRecords, 
@@ -21,7 +21,7 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
 
   const bankRecord = allBankRecords[systemNumber];
 
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState<Boolean>(true);
 
   const handleReset = () => {
     bankRecord.reset();
@@ -75,7 +75,7 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
               bankRecord={bankRecord}
               bankDetailsElementName={bankDetailsElementName} 
               bankDetailsElementValue={bankDetailsElementValue} 
-              handleClick={(e) => pasteOneString(e, bankRecord, forceUpdate)}
+              handleClick={(e: React.MouseEvent<HTMLElement>) => pasteOneString(e, bankRecord, forceUpdate)}
             />
             )
           }

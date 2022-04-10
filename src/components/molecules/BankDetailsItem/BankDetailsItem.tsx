@@ -9,9 +9,9 @@ import { BankRecord } from "records/bank.record";
 
 interface Props {
     bankRecord: BankRecord,
-    bankDetailsElementName: keyof BankRecord,
+    bankDetailsElementName: string,
     bankDetailsElementValue: string, 
-    handleClick: () => void, 
+    handleClick: (e: React.MouseEvent<HTMLElement>) => void, 
 }
 
 export const BankDetailsItem = (props: Props) => {
@@ -32,12 +32,12 @@ export const BankDetailsItem = (props: Props) => {
         forceUpdate,
     } = useContext(AppContext);
 
-    const theSameAsMain = bankRecord[bankDetailsElementName] === allBankRecords[0][bankDetailsElementName];
+    const theSameAsMain = bankRecord[bankDetailsElementName as keyof BankRecord] === allBankRecords[0][bankDetailsElementName as keyof BankRecord];
 
     return (
         <BankDetailsItemStyle>
             <BankDetailsItemTitle 
-                bankDetailsElementName={bankDetailsElementName}
+                bankDetailsElementName={bankDetailsElementName as keyof BankRecord}
                 bankDetailsElementValue={bankDetailsElementValue}
                 system={bankRecord.documentType}
                 className="titleBar"
