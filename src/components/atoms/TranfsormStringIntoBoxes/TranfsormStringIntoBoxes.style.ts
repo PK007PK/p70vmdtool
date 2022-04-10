@@ -1,6 +1,15 @@
 import styled from "styled-components";
 
-export const StyledSpan = styled.span`
+interface StyledSpanProps {
+    isBankKey: boolean, 
+    isBankAccount: boolean, 
+    bankAccountElement: boolean, 
+    bankKeyElement: boolean,
+    theSameAsMain: boolean,
+    bankDetailsElementName: string,
+}
+
+export const StyledSpan = styled.span<StyledSpanProps>`
     display: flex;
     width: 45px;
     height: 45px;

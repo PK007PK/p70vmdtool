@@ -4,12 +4,22 @@ import { elementToTitle } from "lib/elementToTitle"
 import { readAloud } from "lib/readAloud"
 import { AiFillSound } from "react-icons/ai"
 import { MdOutlineContentCopy, MdOutlineGppGood } from "react-icons/md"
+import { BankRecord } from "records/bank.record"
+import { CommonProps } from "types/CommonProps"
 import { defElemValue } from "types/defElemValue"
 import { SwiftRefLink } from "../SwiftRefLink/SwiftRefLink"
 import { BankDetailsItemStyle } from "./BankDetailsItemTitleStyle"
 
-export const BankDetailsItemTitle = (props) => {
-    
+interface Props extends CommonProps{
+    mainRecord: BankRecord,
+    currentRecord: BankRecord,
+    bankDetailsElementName: keyof BankRecord, 
+    bankDetailsElementValue: string,
+    system: string,
+    forceUpdate: () => void,
+}
+
+export const BankDetailsItemTitle = (props: Props) => {
     const {
         bankDetailsElementName, 
         bankDetailsElementValue,

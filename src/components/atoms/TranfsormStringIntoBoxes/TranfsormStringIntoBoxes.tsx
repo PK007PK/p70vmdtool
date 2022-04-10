@@ -1,10 +1,18 @@
+import { BankRecord } from "records/bank.record";
 import { StyledSpan } from "./TranfsormStringIntoBoxes.style";
 
-export const TranfsormStringIntoBoxes = (props) => {
+interface Props {
+    bankRecord: BankRecord,
+    bankDetailsElementName: string,
+    bankDetailsElementValue: string,
+    theSameAsMain: boolean,
+}
+
+export const TranfsormStringIntoBoxes = (props: Props) => {
     const {
         bankRecord,
         bankDetailsElementName,
-        bankDetailsElementValue = ['-'],
+        bankDetailsElementValue = '-',
         theSameAsMain,
     } = props;
 
@@ -14,7 +22,8 @@ export const TranfsormStringIntoBoxes = (props) => {
     } = bankRecord.detectInIban()
 
     return (
-            bankDetailsElementValue.split('').map((el, i) => 
+        <>
+            {bankDetailsElementValue.split('').map((el, i) => 
                 <StyledSpan 
                     id={bankDetailsElementName}
                     theSameAsMain={theSameAsMain}
@@ -26,6 +35,7 @@ export const TranfsormStringIntoBoxes = (props) => {
                     key={i}>
                     {el}
                 </StyledSpan>
-            )
-        )
+            )}
+        </>
+    )
 }

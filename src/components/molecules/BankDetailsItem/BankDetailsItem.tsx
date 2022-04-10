@@ -5,8 +5,16 @@ import { useContext } from "react";
 import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
 import { BankDetailsItemTitle } from "../BankDetailsItemTitle/BankDetailsItemTitle";
 import { defElemValue } from "types/defElemValue";
+import { BankRecord } from "records/bank.record";
 
-export const BankDetailsItem = (props) => {
+interface Props {
+    bankRecord: BankRecord,
+    bankDetailsElementName: keyof BankRecord,
+    bankDetailsElementValue: string, 
+    handleClick: () => void, 
+}
+
+export const BankDetailsItem = (props: Props) => {
     const {
         bankDetailsElementName, 
         bankDetailsElementValue, 
