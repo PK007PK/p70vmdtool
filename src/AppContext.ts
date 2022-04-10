@@ -1,8 +1,8 @@
 import { createContext, useCallback, useState } from 'react';
-import { BankRecord } from 'records/bank.record.ts';
+import { BankRecord } from 'records/bank.record';
 import { AcceptedDocuments } from 'types/AcceptedDocuments';
 
-export const AppContext = createContext();
+export const AppContext = createContext(null);
 
 const AppProvider = ({ children }) => {
 

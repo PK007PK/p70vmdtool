@@ -5,8 +5,5 @@ export const FooterStyle = styled.div`
     display: flex;
     justify-content: space-between;
     width: var(--mainWidth);
-    /* padding: var(--componentsPaddings); */
     padding-top: 20px;
-
-    
 `

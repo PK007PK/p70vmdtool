@@ -13,6 +13,7 @@ const colors = `
     --colorProblem: #E65100;
     --darkBackground: #263238;
     --componentsBackground: #004D40;
+    --colorOrange: #ffa900;
 `
 const spaces = `
     --mainWidth: 384px;

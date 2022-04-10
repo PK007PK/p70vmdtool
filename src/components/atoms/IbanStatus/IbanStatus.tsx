@@ -1,6 +1,12 @@
+import { CommonProps } from "types/CommonProps";
 import { IbanStatusStyle } from "./IbanStatus.style";
 
-export const IbanStatus = ({className, bankKeyDetected, bankAccountDetected}) => 
+interface IbanStatusProps extends CommonProps{
+    bankKeyDetected: boolean,
+    bankAccountDetected: boolean,
+}
+
+export const IbanStatus = ({className, bankKeyDetected, bankAccountDetected}: IbanStatusProps) => 
     <IbanStatusStyle className={className}>
         <div>Bank key{" "} 
             <span style={!bankKeyDetected ? {fontWeight: "bold", color: "orange"} : {}}>

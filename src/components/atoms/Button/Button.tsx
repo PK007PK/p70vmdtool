@@ -1,6 +1,15 @@
+import { CommonProps } from "types/CommonProps";
 import { ButtonStyle } from "./Button.style";
 
-export const Button = (props) => {
+export interface ButtonProps extends CommonProps{
+    absolute?: boolean,
+    as?: React.ElementType,
+    href?: string,
+    target?: string,
+    title?: string,
+}
+
+export const Button = (props: ButtonProps) => {
     const {
         style, 
         className, 
@@ -21,7 +30,8 @@ export const Button = (props) => {
             className={className}
             absolute={absolute} 
             title={title}
-            onClick={onClick}>
+            onClick={onClick}
+        >
             {children}
         </ButtonStyle>
     )

@@ -83,8 +83,6 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
       }
     </>
 
-  // const HideButton = () => <button className="hideButton" onClick={()=>setIsVisible(false)}>X</button>
-
   const bottomBar = main &&
     <div className="apiBar">
       <OpenIban iban={bankRecord.iban}/>
@@ -96,7 +94,6 @@ export const OneFinancialSystemData = ({main, systemNumber}) => {
 
   return (
     <OneFinancialSystemDataStyle>
-      {/* <HideButton /> */}
       <TitleBar />
       <AllBankDetails />
       {bottomBar}

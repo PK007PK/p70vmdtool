@@ -3,16 +3,12 @@ import styled from "styled-components";
 export const AppLogoBarStyle = styled.div`
     display: flex;
     position: relative;
-    /* justify-content: space-between; */
-    /* align-items: center; */
     width: var(--mainWidth);
     color: var(--mainTextColor);
     margin-bottom: 50px;
-    /* height: 70px; */
     width: 90px;
     height: 90px;
     margin-top: 20px;
-    /* background: white; */
 
     .logo {
         width: 90px;
