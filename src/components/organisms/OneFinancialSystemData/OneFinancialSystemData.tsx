@@ -43,7 +43,7 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main: boolean, sys
           </button>}
       </div>
       <div className="buttonsBar">
-        {main && <Button onClick={resetAll} title="Reset app">Reset All</Button>}
+        {main && <Button onClick={()=>resetAll()} title="Reset app">Reset All</Button>}
         <Button onClick={handleReset} title="Reset current financial system">Reset</Button>
         {bankRecord.documentType !== AcceptedDocuments.Document &&
           <Button 
@@ -62,7 +62,6 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main: boolean, sys
       {Object.entries(bankRecord)
         .filter(item => item[0] in BankRecordElements)
         .map(([bankDetailsElementName,bankDetailsElementValue]) => {
-            console.log(bankRecord.documentType);
             if (bankRecord.documentType === AcceptedDocuments.Document && bankDetailsElementName === BankRecordElements.bankKey) {
               return null;
             }
