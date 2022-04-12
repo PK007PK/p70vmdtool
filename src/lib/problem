@@ -22,7 +22,7 @@ export const pasteAll = (record: BankRecord, updateFunction: Function) => {
           IBAN: "",
         };
 
-        for (const element: keyof ValuesFound of Object.keys(ValuesFound)) {
+        for (const element of Object.keys(ValuesFound)) {
             for (let i = 0; i < cleanedTextInTable.length; i++) {
                 if (element === "IBAN" && element !== cleanedTextInTable[i + 1] && element === cleanedTextInTable[i]) {
                     ValuesFound[element] = cleanedTextInTable[i + 1];

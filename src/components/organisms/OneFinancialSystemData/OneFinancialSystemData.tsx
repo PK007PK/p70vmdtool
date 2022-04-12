@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useMemo, useState } from "react";
 import { AppContext } from "AppContext";
 import { BankRecordElements } from "types/BankRecordElements";
 import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
@@ -82,10 +82,11 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main: boolean, sys
       }
     </>
 
-  const bottomBar = main &&
+  const openIbanBar = useMemo(()=> main &&
     <div className="apiBar">
       <OpenIban iban={bankRecord.iban}/>
     </div>
+  ,[bankRecord.iban, main])
 
   if (!isVisible) {
     return null;
@@ -95,6 +96,6 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main: boolean, sys
     <OneFinancialSystemDataStyle>
       <TitleBar />
       <AllBankDetails />
-      {bottomBar}
+      {openIbanBar}
     </OneFinancialSystemDataStyle>
   )}
