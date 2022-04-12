@@ -79,7 +79,7 @@ export const Summary = () => {
     ` : "";
     const pbProblemReport = pbProblem ? `There is posting block in the local system. Data will not be replicated to CFIN. The supplier does not receive payment.
     ` : "";
-    const replicationProblemReport = replicationProblem ? `For technical reasons, data replication did not take place. We will analyse the situation and if necessary JIRA will be set up. .
+    const replicationProblemReport = replicationProblem ? `For technical reasons, data replication did not take place. We will analyse the situation and if necessary JIRA will be set up.
     ` : "";
 
     const errorReport = `${ccProblemReport}${pbProblemReport}${replicationProblemReport}${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`
