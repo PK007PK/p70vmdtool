@@ -5,8 +5,8 @@ interface StyledSpanProps {
     isBankAccount: boolean, 
     bankAccountElement: boolean, 
     bankKeyElement: boolean,
-    theSameAsMain: boolean,
     bankDetailsElementName: string,
+    iSNotTheSame: boolean;
 }
 
 export const StyledSpan = styled.span<StyledSpanProps>`
@@ -26,7 +26,7 @@ export const StyledSpan = styled.span<StyledSpanProps>`
         : 'var(--colorOk)'
     };
 
-    color: ${({theSameAsMain}) => theSameAsMain ? "var(--mainTextColor)" : "red" };
+    color: ${({iSNotTheSame}) => iSNotTheSame ? "var(--mainTextColor)" : "red" };
 
     margin-top: 2px;
     :nth-child(4n) {

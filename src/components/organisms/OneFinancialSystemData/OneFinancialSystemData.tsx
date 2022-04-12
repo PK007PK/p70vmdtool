@@ -50,7 +50,7 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main: boolean, sys
             onClick={ ()=> pasteAll(bankRecord, forceUpdate)}
             title="Paste data from clipboard copied form fin sys, with kayword recognition"
           >
-            CRM paste
+            OCR paste
           </Button>
         }
         <Button className="hideButton" onClick={()=>setIsVisible(false)}>X</Button>

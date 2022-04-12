@@ -1,11 +1,13 @@
+import { AppContext } from "AppContext";
+import { useContext } from "react";
 import { BankRecord } from "records/bank.record";
+import { defElemValue } from "types/defElemValue";
 import { StyledSpan } from "./TranfsormStringIntoBoxes.style";
 
 interface Props {
     bankRecord: BankRecord,
     bankDetailsElementName: string,
     bankDetailsElementValue: string,
-    theSameAsMain: boolean,
 }
 
 export const TranfsormStringIntoBoxes = (props: Props) => {
@@ -13,7 +15,6 @@ export const TranfsormStringIntoBoxes = (props: Props) => {
         bankRecord,
         bankDetailsElementName,
         bankDetailsElementValue = '-',
-        theSameAsMain,
     } = props;
 
     const {
@@ -21,17 +22,24 @@ export const TranfsormStringIntoBoxes = (props: Props) => {
         bankAccountPosition: {start: bankAccountStart, end: bankAccountEnd},
     } = bankRecord.detectInIban()
 
+    const {
+        allBankRecords,
+    } = useContext(AppContext);
+
     return (
         <>
-            {bankDetailsElementValue.split('').map((el, i) => 
+            {bankDetailsElementValue.split('').map((el, i) =>
                 <StyledSpan 
                     id={bankDetailsElementName}
-                    theSameAsMain={theSameAsMain}
                     bankDetailsElementName={bankDetailsElementName}
                     bankKeyElement={bankDetailsElementName === "bankKey"}
                     bankAccountElement={bankDetailsElementName === "bankAccount"}
                     isBankKey={bankDetailsElementName==="iban" && i >= bankKeyStart && i <= bankKeyEnd} 
                     isBankAccount={bankDetailsElementName==="iban" && i >= bankAccountStart && i <= bankAccountEnd}
+                    iSNotTheSame={
+                        bankRecord[bankDetailsElementName as keyof object][i] === allBankRecords[0][bankDetailsElementName as keyof object][i] || 
+                        bankRecord[bankDetailsElementName as keyof object][i] === defElemValue
+                    }
                     key={i}>
                     {el}
                 </StyledSpan>

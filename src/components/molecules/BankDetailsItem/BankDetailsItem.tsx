@@ -32,8 +32,6 @@ export const BankDetailsItem = (props: Props) => {
         forceUpdate,
     } = useContext(AppContext);
 
-    const theSameAsMain = bankRecord[bankDetailsElementName as keyof BankRecord] === allBankRecords[0][bankDetailsElementName as keyof BankRecord];
-
     return (
         <BankDetailsItemStyle>
             <BankDetailsItemTitle 
@@ -55,7 +53,6 @@ export const BankDetailsItem = (props: Props) => {
                     bankDetailsElementName={bankDetailsElementName} 
                     bankDetailsElementValue={bankDetailsElementValue}
                     bankRecord={bankRecord}
-                    theSameAsMain={theSameAsMain}
                 />
             </button>
             {bankDetailsElementName === "iban" && 
