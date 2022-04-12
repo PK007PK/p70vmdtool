@@ -20,18 +20,18 @@ export const StyledSpan = styled.span<StyledSpanProps>`
     cursor: copy;
     background-color: ${({isBankKey, isBankAccount, bankAccountElement, bankKeyElement, iSNotTheSame}) => 
         !iSNotTheSame ? 'white'
-        : isBankKey ? 'var(--colorBankKey)' 
+        : isBankKey ? '#006064' 
         : isBankAccount ? 'var(--colorBankAccount)' 
         : bankAccountElement ? 'var(--colorBankAccount)'
-        : bankKeyElement ? 'var(--colorBankKey)'
+        : bankKeyElement ? '#006064'
         : 'var(--colorOk)'
     };
 
     color: ${({iSNotTheSame}) => iSNotTheSame ? "var(--mainTextColor)" : "red" };
 
-    margin-top: 2px;
+    margin-top: 3px;
     :nth-child(4n) {
-        margin-right: 2px;
+        margin-right: 5px;
     }
 
     &:hover {
