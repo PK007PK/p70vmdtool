@@ -60,8 +60,8 @@ export const Summary = () => {
     const crossSystemsSwiftCheck = allBankRecords[2].swift !== allBankRecords[0].swift && 
         allBankRecords[2].swift !== defElemValue && allBankRecords[0].swift !== defElemValue ? 
         `SWIFT in ${allBankRecords[0].documentType} is different from SWIFT in ${allBankRecords[2].documentType}.
-        ${allBankRecords[0].documentType}: ${allBankRecords[0].iban}.
-        ${allBankRecords[2].documentType}: ${allBankRecords[2].iban}.
+        ${allBankRecords[0].documentType}: ${allBankRecords[0].swift}.
+        ${allBankRecords[2].documentType}: ${allBankRecords[2].swift}.
         ` : ``
 
     const errorReport = `${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`

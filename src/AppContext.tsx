@@ -33,9 +33,12 @@ const AppProvider = ({children}: {children: React.ReactNode}) => {
     [...initialBankRecords]
   );
   
-  const resetAll = () => setAllBankRecords(
-    [...initialBankRecords]
-  );
+  const resetAll = () => {
+    allBankRecords[0].reset();
+    allBankRecords[1].reset();
+    allBankRecords[2].reset();
+    forceUpdate();
+  };
 
   const changeMainFsBetweenRecords = () => {
     if (allBankRecords[0].documentType === AcceptedDocuments.Cfin) {
