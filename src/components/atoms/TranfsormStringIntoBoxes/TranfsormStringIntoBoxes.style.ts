@@ -18,11 +18,12 @@ export const StyledSpan = styled.span<StyledSpanProps>`
     font-size: 20px;
     border: 1px solid gray;
     cursor: copy;
-    background-color: ${({isBankKey, isBankAccount, bankAccountElement, bankKeyElement}) => 
+    background-color: ${({isBankKey, isBankAccount, bankAccountElement, bankKeyElement, iSNotTheSame}) => 
         isBankKey ? 'var(--colorBankKey)' 
         : isBankAccount ? 'var(--colorBankAccount)' 
         : bankAccountElement ? 'var(--colorBankAccount)'
         : bankKeyElement ? 'var(--colorBankKey)'
+        : !iSNotTheSame ? 'white'
         : 'var(--colorOk)'
     };
 
