@@ -6,6 +6,7 @@ import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
 import { BankDetailsItemTitle } from "../BankDetailsItemTitle/BankDetailsItemTitle";
 import { defElemValue } from "types/defElemValue";
 import { BankRecord } from "records/bank.record";
+import { AcceptedDocuments } from "types/AcceptedDocuments";
 
 interface Props {
     bankRecord: BankRecord,
@@ -57,6 +58,7 @@ export const BankDetailsItem = (props: Props) => {
             </button>
             {bankDetailsElementName === "iban" && 
              bankDetailsElementValue !== defElemValue &&
+             bankRecord.documentType !== AcceptedDocuments.Document &&
                 <IbanStatus 
                     bankKeyDetected={bankKeyDetected} 
                     bankAccountDetected={bankAccountDetected} 
