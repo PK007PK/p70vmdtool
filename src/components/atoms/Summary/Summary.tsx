@@ -1,6 +1,9 @@
 import { AppContext } from "AppContext";
-import { useContext } from "react";
+import { copyToClipboard } from "lib/copyToClipboard";
+import { useContext, useState } from "react";
+import { MdOutlineContentCopy } from "react-icons/md";
 import { defElemValue } from "types/defElemValue";
+import { Button } from "../Button/Button";
 import { SummaryStyle } from "./Summary.style";
 
 export const Summary = () => {
@@ -8,6 +11,14 @@ export const Summary = () => {
     const {
         allBankRecords, 
        } = useContext(AppContext);
+
+    const [ccProblem, setCCProblem ] = useState<boolean>(false)
+    const ccProblemToogle = () => setCCProblem(prev => !prev);
+    const [pbProblem, setPbProblem ] = useState<boolean>(false)
+    const pbProblemToogle = () => setPbProblem(prev => !prev);
+    const [replicationProblem, setReplicationProblem ] = useState<boolean>(false)
+    const replicationProblemToogle = () => setReplicationProblem(prev => !prev);
+    
 
     //    Most ugly code ever
     const docAccountCheck = allBankRecords[1].bankAccount !== allBankRecords[0].bankAccount && 
@@ -64,12 +75,40 @@ export const Summary = () => {
         ${allBankRecords[2].documentType}: ${allBankRecords[2].swift}.
         ` : ``
 
-    const errorReport = `${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`
+    const ccProblemReport = ccProblem ? `The company code is missing in the local system. Data will not be replicated to CFIN. The supplier does not receive payment.
+    ` : "";
+    const pbProblemReport = pbProblem ? `There is posting block in the local system. Data will not be replicated to CFIN. The supplier does not receive payment.
+    ` : "";
+    const replicationProblemReport = replicationProblem ? `For technical reasons, data replication did not take place. We will analyse the situation and if necessary JIRA will be set up. .
+    ` : "";
+
+    const errorReport = `${ccProblemReport}${pbProblemReport}${replicationProblemReport}${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`
 
     return (
         <SummaryStyle>
-            <h3 className="title">Errors detected:</h3>
-            <p>{errorReport !=="" ? errorReport : "No problems detected"}</p>
+            <div className="titleBar">
+                <h3 className="title">Errors detected:</h3>
+                <Button 
+                    title="Copy Report to clipboard" 
+                    onClick={()=>copyToClipboard(errorReport)}
+                >
+                    <MdOutlineContentCopy />
+                </Button>
+            </div>
+            <form>
+                <label>
+                    <input type="checkbox" checked={ccProblem} onChange={ccProblemToogle} /> Lack of cc
+                </label><br/>
+                <label>
+                    <input type="checkbox" checked={pbProblem} onChange={pbProblemToogle} /> Posting block
+                </label><br/>
+                <label>
+                    <input type="checkbox" checked={replicationProblem} onChange={replicationProblemToogle} /> Lack of replication due to technical reasons
+                </label>
+            </form>
+            <div className="display">
+                <p>{errorReport !=="" ? errorReport : "No problems detected"}</p>
+            </div>
         </SummaryStyle>
     )
 }

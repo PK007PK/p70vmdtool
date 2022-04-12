@@ -4,14 +4,30 @@ export const SummaryStyle = styled.div`
     padding: var(--componentsPaddings);
     width: var(--mainWidth);
     box-shadow: var(--bs);
-    color: black;
     padding-top: 15px;
-    background-color: white;
     position: relative;
+
+    .titleBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: -50px;
+        right: 0px;
+        width: 100%;
+    }
 
     .title {
         color: var(--mainTextColor);
-        position: absolute;
-        top: -50px;
+    }
+
+    form {
+        color: var(--mainTextColor);
+    }
+
+    .display {
+        padding: 5px;
+        color: black;
+        background-color: white;
     }
 `
