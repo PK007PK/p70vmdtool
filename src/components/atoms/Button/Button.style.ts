@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {ButtonProps}from './Button'
+import {ButtonProps} from './Button'
 
 export const ButtonStyle = styled.button<ButtonProps>`
     position: ${({absolute}) => absolute ? 'absolute' : 'static'};

@@ -1,4 +1,33 @@
-const theme = {};
+export interface ThemeEntity {
+  breakpoint: {
+    xs: number,
+    sm: number,
+    md: number,
+    lg: number,
+    xl: number,
+  },
+  media: {
+    xsAbove: string,
+    xsBelow: string,
+    smAbove: string,
+    smBelow: string,
+    mdAbove: string,
+    mdBelow: string,
+    lgAbove: string,
+    lgBelow: string,
+    xlAbove: string,
+    xlBelow: string,
+  },
+  maxContainerWidth: {
+    xs: number,
+    sm: number,
+    md: number,
+    lg: number,
+    xl: number,
+  }
+}
+
+const theme = {} as ThemeEntity;
 
 theme.breakpoint = {
   xs: 576,

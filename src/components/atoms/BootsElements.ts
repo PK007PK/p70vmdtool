@@ -1,37 +1,48 @@
+import { ThemeEntity } from 'assets/Theme';
 import styled from 'styled-components';
 
-export const BootsContainer = styled.div`
+interface BootsElementsEntity {
+  noXl?: boolean,
+  xxs?: number,
+  xs?: number,
+  sm?: number, 
+  md?: number, 
+  lg?: number,
+  xl?: number,
+}
+
+export const BootsContainer = styled.div<BootsElementsEntity>`
   width: 100%;
   padding-left: 15px;
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
 
-  ${({ theme }) => theme.media.xsAbove} {
-    max-width: ${({ theme }) => theme.maxContainerWidth.xs}px;
+  ${({ theme }: {theme: ThemeEntity}) => theme.media.xsAbove} {
+    max-width: ${({ theme }: {theme: ThemeEntity}) => theme.maxContainerWidth.xs}px;
   }
 
-  ${({ theme }) => theme.media.smAbove} {
-    max-width: ${({ theme }) => theme.maxContainerWidth.sm}px;
+  ${({ theme }: {theme: ThemeEntity}) => theme.media.smAbove} {
+    max-width: ${({ theme }: {theme: ThemeEntity}) => theme.maxContainerWidth.sm}px;
   }
 
-  ${({ theme }) => theme.media.mdAbove} {
-    max-width: ${({ theme }) => theme.maxContainerWidth.md}px;
+  ${({ theme }: {theme: ThemeEntity}) => theme.media.mdAbove} {
+    max-width: ${({ theme }: {theme: ThemeEntity}) => theme.maxContainerWidth.md}px;
   }
 
-  ${({ theme }) => theme.media.lgAbove} {
-    max-width: ${({ theme }) => theme.maxContainerWidth.lg}px;
+  ${({ theme }: {theme: ThemeEntity}) => theme.media.lgAbove} {
+    max-width: ${({ theme }: {theme: ThemeEntity}) => theme.maxContainerWidth.lg}px;
 
-  ${({ theme }) => theme.media.xlAbove} {
-    max-width: ${({ theme }) => theme.maxContainerWidth.xl}px;
+  ${({ theme }: {theme: ThemeEntity}) => theme.media.xlAbove} {
+    max-width: ${({ theme }: {theme: ThemeEntity}) => theme.maxContainerWidth.xl}px;
   }
 
-  ${({ theme }) => theme.media.xlAbove} {
+  ${({ theme }: {theme: ThemeEntity}) => theme.media.xlAbove} {
     ${({ noXl }) =>
       noXl &&
       `
       {
-        max-width: ${({ theme }) => theme.maxContainerWidth.lg}px;
+        max-width: ${({ theme }: {theme: ThemeEntity}) => theme.maxContainerWidth.lg}px;
       }
     `}
   }
@@ -44,7 +55,7 @@ export const BootsRow = styled.div`
   position: relative;
 `;
 
-export const BootsColumn = styled.div`
+export const BootsColumn = styled.div<BootsElementsEntity>`
   width: 100%;
   padding: 0 15px;
   position: relative;
