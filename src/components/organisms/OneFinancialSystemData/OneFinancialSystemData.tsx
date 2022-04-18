@@ -10,7 +10,7 @@ import { OpenIban } from "components/atoms/OpenIban/OpenIban";
 import { HiOutlineSwitchVertical } from 'react-icons/hi';
 import { AcceptedDocuments } from "types/AcceptedDocuments";
 
-export const OneFinancialSystemData = ({main, systemNumber}: {main: boolean, systemNumber: number}) => {
+export const OneFinancialSystemData = ({main, systemNumber}: {main?: boolean, systemNumber: number}) => {
 
   const {
        allBankRecords, 
