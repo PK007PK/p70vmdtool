@@ -12,8 +12,6 @@ interface BankRecordEntity {
     swift: string,
 }
 
-type Abc = keyof BankRecordEntity
-
 export class BankRecord implements BankRecordEntity {
     public documentType: AcceptedDocuments;
     public bankKey: string;
