@@ -68,8 +68,8 @@ export const Summary = () => {
         ${allBankRecords[0].documentType}: ${allBankRecords[0].swift}.
         ${allBankRecords[2].documentType}: ${allBankRecords[2].swift}. ` : ``
 
-    const ccProblemReport = ccProblem ? `The company code is missing in the local system. Data will not be replicated to CFIN. The supplier does not receive payment. ` : "";
-    const pbProblemReport = pbProblem ? `There is posting block in the local system. Data will not be replicated to CFIN. The supplier does not receive payment. ` : "";
+    const ccProblemReport = ccProblem ? `The bank details have been confirmed in the local system. However, the company code is missing there. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid.` : "";
+    const pbProblemReport = pbProblem ? `There is posting block in the local system. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid.` : "";
     const replicationProblemReport = replicationProblem ? `For technical reasons, data replication did not take place. We will analyse the situation and if necessary JIRA will be set up. ` : "";
 
     const errorReport = `${ccProblemReport}${pbProblemReport}${replicationProblemReport}${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`
@@ -97,7 +97,7 @@ export const Summary = () => {
                 </label>
             </form>
             <div className="display">
-                <p>{errorReport !=="" ? errorReport : "No problems detected"}</p>
+                <p>{errorReport !=="" ? `Dear team. ${errorReport} Kind regards` : `No problems detected`}</p>
             </div>
         </SummaryStyle>
     )
