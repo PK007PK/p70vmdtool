@@ -4,7 +4,17 @@ import { BankElementStartEnd } from 'types/BankElementStartEnd';
 import { BankRecordElements } from 'types/BankRecordElements';
 import { defElemValue } from 'types/defElemValue';
 
-export class BankRecord {
+interface BankRecordEntity {
+    documentType: AcceptedDocuments,
+    bankKey: string,
+    bankAccount: string,
+    iban: string,
+    swift: string,
+}
+
+type Abc = keyof BankRecordEntity
+
+export class BankRecord implements BankRecordEntity {
     public documentType: AcceptedDocuments;
     public bankKey: string;
     public bankAccount: string;
