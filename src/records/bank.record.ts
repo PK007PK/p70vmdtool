@@ -35,7 +35,7 @@ export class BankRecord implements BankRecordEntity {
         if (this.documentType === AcceptedDocuments.Document) {
             this[key] = cleanString(value)
         } else {
-            this[key] = value;
+            this[key] = `${value}`;
         };
         
     }
