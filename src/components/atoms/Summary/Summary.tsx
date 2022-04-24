@@ -68,11 +68,16 @@ export const Summary = () => {
         ${allBankRecords[0].documentType}: ${allBankRecords[0].swift}.
         ${allBankRecords[2].documentType}: ${allBankRecords[2].swift}. ` : ``
 
-    const ccProblemReport = ccProblem ? `The bank details have been confirmed in the local system. However, the company code is missing there. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid.` : "";
-    const pbProblemReport = pbProblem ? `There is posting block in the local system. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid.` : "";
+    const ccProblemReport = ccProblem ? `The bank details have been confirmed in the local system. However, the company code is missing there. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid. Please solve this problem or contact someone who can do it. ` : "";
+    const pbProblemReport = pbProblem ? `There is posting block in the local system. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid. Please solve this problem or contact someone who can do it. ` : "";
     const replicationProblemReport = replicationProblem ? `For technical reasons, data replication did not take place. We will analyse the situation and if necessary JIRA will be set up. ` : "";
 
-    const errorReport = `${ccProblemReport}${pbProblemReport}${replicationProblemReport}${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`
+    let errorReport = `${ccProblemReport}${pbProblemReport}${replicationProblemReport}${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}`
+    if (errorReport !=="") {
+        errorReport = `Dear team. ${errorReport} Kind regards`
+    } else {
+        errorReport = `No problems detected`
+    }
 
     return (
         <SummaryStyle>
@@ -97,7 +102,7 @@ export const Summary = () => {
                 </label>
             </form>
             <div className="display">
-                <p>{errorReport !=="" ? `Dear team. ${errorReport} Kind regards` : `No problems detected`}</p>
+                <p>{errorReport}</p>
             </div>
         </SummaryStyle>
     )
