@@ -15,7 +15,6 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main?: boolean, sy
   const {
        allBankRecords, 
        forceUpdate,
-       resetAll,
        changeMainFsBetweenRecords,
       } = useContext(AppContext);
 
