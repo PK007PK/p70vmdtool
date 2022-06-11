@@ -32,7 +32,7 @@ export const insertSampleData = (status: AcceptedArg, allBankRecords: BankRecord
     }
     if (status === "err") {
         allBankRecords[0].bankKey = sampleRecordOk.bankKey;
-        allBankRecords[0].bankAccount = sampleRecordOk.bankAccount;
+        allBankRecords[0].bankAccount = "0532113000";
         allBankRecords[0].iban = sampleRecordOk.iban;
         allBankRecords[0].swift = sampleRecordOk.swift;
         allBankRecords[1].bankAccount = sampleRecordError.bankAccount;
