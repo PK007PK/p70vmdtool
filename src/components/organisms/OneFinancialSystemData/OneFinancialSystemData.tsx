@@ -43,7 +43,6 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main?: boolean, sy
           </button>}
       </div>
       <div className="buttonsBar">
-        {main && <Button onClick={()=>resetAll()} title="Reset app">Reset All</Button>}
         <Button onClick={handleReset} title="Reset current financial system">Reset</Button>
         {bankRecord.documentType !== AcceptedDocuments.Document &&
           <Button 

@@ -6,6 +6,7 @@ import { AppLogoBarStyle } from "./AppLogoBar.style";
 
 export const AppLogoBar = () => {
     const {
+        resetAll,
         allBankRecords,
         forceUpdate,
     } = useContext(AppContext);
@@ -18,6 +19,7 @@ export const AppLogoBar = () => {
                 <span>defender</span></h1>
             </div>
             <div className="sampleDataBar">
+                <button className='smallButton' onClick={()=>resetAll()}>Reset all</button>
                 <button className='smallButton' onClick={()=>insertSampleData("ok", allBankRecords, forceUpdate)}>Sample data: no error</button>
                 <button className='smallButton' onClick={()=>insertSampleData("err", allBankRecords, forceUpdate)}>Sample data: error</button>
             </div>
