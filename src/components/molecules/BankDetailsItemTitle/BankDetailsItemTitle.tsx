@@ -7,6 +7,8 @@ import { MdOutlineContentCopy, MdOutlineGppGood } from "react-icons/md"
 import { BankRecord } from "records/bank.record"
 import { CommonProps } from "types/CommonProps"
 import { defElemValue } from "types/defElemValue"
+import { BankCodeNet } from "../BankCodeNet/BankCodeNet"
+import { BankCodesLink } from "../BankCodesLink/BankCodesLink"
 import { SwiftRefLink } from "../SwiftRefLink/SwiftRefLink"
 import { BankDetailsItemStyle } from "./BankDetailsItemTitleStyle"
 
@@ -62,7 +64,11 @@ export const BankDetailsItemTitle = (props: Props) => {
                     </button>
                 }
                 {system === mainRecord.documentType && bankDetailsElementName === "iban" &&
-                    <SwiftRefLink className="smallButton" />
+                    <>
+                        <SwiftRefLink className="smallButton" />
+                        <BankCodesLink className="smallButton" />
+                        <BankCodeNet className="smallButton" />
+                    </>
                 }
             </div>
         </BankDetailsItemStyle>

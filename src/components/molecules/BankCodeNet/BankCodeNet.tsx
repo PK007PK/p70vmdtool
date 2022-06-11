@@ -3,12 +3,12 @@ import { Button } from "components/atoms/Button/Button";
 import { useContext} from "react";
 import { defElemValue } from "types/defElemValue";
 
-export const SwiftRefLink = ({className}: {className: string}) => {
+export const BankCodeNet = ({className}: {className: string}) => {
     const {
         allBankRecords
        } = useContext(AppContext);
 
-    const link = `https://www.swiftrefdata.com/new/en/iban#validation/`
+    const link = `https://bank-code.net/iban-checker?iban=`
     
     return (
         allBankRecords[0].iban !== defElemValue 
@@ -17,9 +17,9 @@ export const SwiftRefLink = ({className}: {className: string}) => {
                 as="a" 
                 target="blank" 
                 className={className} 
-                title="Check in https://www.swiftrefdata.com, inject IBAN to fast check it"
+                title="Check in https://bank-code.net, inject IBAN to fast check it"
             >
-                SwiftRef
+                BCodeNet
             </Button>
             : null
     )
