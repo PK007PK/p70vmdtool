@@ -96,7 +96,7 @@ export const Summary = () => {
             </div>
             <form>
                 <label>
-                    <input type="checkbox" checked={report} onChange={reportToogle} /> Comparison of bank details in systems
+                    <input type="checkbox" checked={report} onChange={reportToogle} /> Compare bank details in systems
                 </label><br/>
                 <label>
                     <input type="checkbox" checked={ccProblem} onChange={ccProblemToogle} /> Lack of cc

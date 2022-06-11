@@ -1,10 +1,12 @@
 import { copyFromMainFinSystem } from "lib/copyFromMainFinSystem"
 import { copyToClipboard } from "lib/copyToClipboard"
+import { delDash } from "lib/delDash"
 import { elementToTitle } from "lib/elementToTitle"
 import { readAloud } from "lib/readAloud"
 import { AiFillSound } from "react-icons/ai"
 import { MdOutlineContentCopy, MdOutlineGppGood } from "react-icons/md"
 import { BankRecord } from "records/bank.record"
+import { BankRecordElements } from "types/BankRecordElements"
 import { CommonProps } from "types/CommonProps"
 import { defElemValue } from "types/defElemValue"
 import { BankCodeNet } from "../BankCodeNet/BankCodeNet"
@@ -36,6 +38,15 @@ export const BankDetailsItemTitle = (props: Props) => {
         <BankDetailsItemStyle className={className}>
             <h3 className="title">{elementToTitle(bankDetailsElementName)}</h3>
             <div className="buttonBar">
+                {bankDetailsElementName === BankRecordElements.bankAccount &&
+                    <button 
+                        onClick={()=>delDash(currentRecord, forceUpdate)}
+                        title="Delete dash"
+                        className="smallButton"
+                    >
+                        Del "-"
+                    </button>
+                }
                 {bankDetailsElementValue !== defElemValue &&
                     <button 
                         onClick={()=>readAloud(bankDetailsElementValue)}
@@ -63,7 +74,7 @@ export const BankDetailsItemTitle = (props: Props) => {
                         <MdOutlineGppGood />
                     </button>
                 }
-                {system === mainRecord.documentType && bankDetailsElementName === "iban" &&
+                {system === mainRecord.documentType && bankDetailsElementName === BankRecordElements.iban &&
                     <>
                         <SwiftRefLink className="smallButton" />
                         <BankCodesLink className="smallButton" />
