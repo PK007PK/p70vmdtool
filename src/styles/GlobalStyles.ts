@@ -72,6 +72,18 @@ a:hover {
 button {
     font-family: 'radnika_next', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.smallButton {
+        transition: var(--transition);
+        cursor: pointer;
+        color: black;
+
+        &:hover {
+            background-color: var(--colorBankKey);
+            color: var(--mainTextColor);
+        }
+    }
+
 `;
 
 export default GlobalStyles;

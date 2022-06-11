@@ -13,11 +13,11 @@ interface BankRecordEntity {
 }
 
 export class BankRecord implements BankRecordEntity {
-    public documentType: AcceptedDocuments;
-    public bankKey: string;
-    public bankAccount: string;
-    public iban: string;
-    public swift: string;
+    documentType: AcceptedDocuments;
+    bankKey: string;
+    bankAccount: string;
+    iban: string;
+    swift: string;
 
     constructor(obj: Omit<BankRecord, 'insert' | 'detectInIban' | 'reset'>) {
 

@@ -2,13 +2,19 @@ import styled from "styled-components";
 
 export const AppLogoBarStyle = styled.div`
     display: flex;
-    position: relative;
-    width: var(--mainWidth);
-    color: var(--mainTextColor);
-    margin-bottom: 50px;
-    width: 90px;
-    height: 90px;
-    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+
+    .logoBar {
+        display: flex;
+        position: relative;
+        width: var(--mainWidth);
+        color: var(--mainTextColor);
+        margin-bottom: 50px;
+        width: 90px;
+        height: 90px;
+        margin-top: 20px;
+    }
 
     .logo {
         width: 90px;
@@ -30,5 +36,11 @@ export const AppLogoBarStyle = styled.div`
         display: block;
         font-weight: 100;
         font-size: 15px;
+    }
+
+    .sampleDataBar {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
     }
 `

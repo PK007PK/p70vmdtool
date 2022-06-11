@@ -23,15 +23,4 @@ export const BankDetailsItemStyle = styled.div`
             margin-left: 5px;
         }
     }
-
-    .smallButton {
-        transition: var(--transition);
-        cursor: pointer;
-        color: black;
-
-        &:hover {
-            background-color: var(--colorBankKey);
-            color: var(--mainTextColor);
-        }
-    }
 `
