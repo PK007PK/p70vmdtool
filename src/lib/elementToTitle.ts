@@ -1,18 +1,19 @@
 import { BankRecord } from "records/bank.record";
+import { BankRecordElements } from "types/BankRecordElements";
 
 export function elementToTitle(element: keyof Omit<BankRecord, 'insert' | 'detectInIban' | 'reset' | 'documentType'>) {
     let title;
     switch (element) {
-        case "bankKey":
+        case BankRecordElements.bankKey:
             title = "Bank key";
             break;
-        case "bankAccount":
+        case BankRecordElements.bankAccount:
             title = "Bank account";
             break;
-        case "iban":
+        case BankRecordElements.iban:
             title = "Iban";
             break;
-        case "swift":
+        case BankRecordElements.swift:
             title = "SWIFT code";
             break; 
         default:

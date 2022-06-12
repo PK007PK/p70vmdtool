@@ -1,5 +1,15 @@
 import { BankRecord } from "records/bank.record";
 import { BankRecordElements } from 'types/BankRecordElements';
+
+interface ValuesFoundEntity {
+  Key: string,
+  "SWIFT/BIC": string, 
+  Account: string,
+  IBAN: string,
+}
+
+type ValuesFoundKey = keyof ValuesFoundEntity;
+
 export const pasteAll = (record: BankRecord, updateFunction: Function) => {
     console.log(record);
     navigator.clipboard.readText()
@@ -14,21 +24,12 @@ export const pasteAll = (record: BankRecord, updateFunction: Function) => {
           .split(re)
           .filter(i => i !== "");
 
-        interface ValuesFoundEntity {
-          Key: string,
-          "SWIFT/BIC": string, 
-          Account: string,
-          IBAN: string,
-        }
-
         const ValuesFound: ValuesFoundEntity = {
           Key: "", 
           "SWIFT/BIC": "", 
           Account: "", 
           IBAN: "",
         };
-
-        type ValuesFoundKey = keyof ValuesFoundEntity;
 
         for (const element of Object.keys(ValuesFound)) {
             for (let i = 0; i < cleanedTextInTable.length; i++) {
