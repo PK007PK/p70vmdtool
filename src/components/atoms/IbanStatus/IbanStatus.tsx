@@ -6,7 +6,7 @@ interface IbanStatusProps extends CommonProps{
     bankAccountDetected: boolean,
 }
 
-export const IbanStatus = ({className, bankKeyDetected, bankAccountDetected}: IbanStatusProps) => 
+export const IbanStatus: React.FunctionComponent<IbanStatusProps> = ({className, bankKeyDetected, bankAccountDetected}): JSX.Element => 
     <IbanStatusStyle className={className}>
         <div>Bank key{" "} 
             <span style={!bankKeyDetected ? {fontWeight: "bold", color: "orange"} : {}}>

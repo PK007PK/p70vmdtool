@@ -10,7 +10,8 @@ interface Props {
     bankDetailsElementValue: string,
 }
 
-export const TranfsormStringIntoBoxes = (props: Props) => {
+export const TranfsormStringIntoBoxes: React.FunctionComponent<Props> = (props): JSX.Element => {
+
     const {
         bankRecord,
         bankDetailsElementName,

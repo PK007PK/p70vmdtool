@@ -9,7 +9,7 @@ export interface ButtonProps extends CommonProps{
     title?: string,
 }
 
-export const Button = (props: ButtonProps) => {
+export const Button: React.FunctionComponent<ButtonProps> = (props): JSX.Element => {
     const {
         style, 
         className, 
@@ -21,6 +21,7 @@ export const Button = (props: ButtonProps) => {
         target,
         title,
     } = props
+    
     return (
         <ButtonStyle
             target={target}

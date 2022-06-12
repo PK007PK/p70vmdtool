@@ -1,9 +1,10 @@
 import { AppContext } from "AppContext";
 import { Button } from "components/atoms/Button/Button";
 import { useContext} from "react";
+import { CommonProps } from "types/CommonProps";
 import { defElemValue } from "types/defElemValue";
 
-export const BankCodesLink = ({className}: {className: string}) => {
+export const BankCodesLink: React.FunctionComponent<CommonProps> = ({className}): JSX.Element | null => {
     const {
         allBankRecords
        } = useContext(AppContext);

@@ -15,7 +15,7 @@ interface Props {
     handleClick: (e: React.MouseEvent<HTMLElement>) => void, 
 }
 
-export const BankDetailsItem = (props: Props) => {
+export const BankDetailsItem: React.FunctionComponent<Props> = (props): JSX.Element => {
     const {
         bankDetailsElementName, 
         bankDetailsElementValue, 

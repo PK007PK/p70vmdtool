@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { BsShield } from 'react-icons/bs';
 import { AppLogoBarStyle } from "./AppLogoBar.style";
 
-export const AppLogoBar = () => {
+export const AppLogoBar: React.FunctionComponent = (): JSX.Element => {
     const {
         resetAll,
         allBankRecords,

@@ -3,7 +3,7 @@ import AppProvider from '../AppContext';
 import GlobalStyles from 'styles/GlobalStyles';
 import theme from 'assets/Theme';
 
-import Layout from 'components/atoms/Layout/Layout';
+import { Layout } from 'components/atoms/Layout/Layout';
 import { AppLogoBar } from 'components/atoms/AppLogoBar/AppLogoBar';
 import { OneFinancialSystemData } from 'components/organisms/OneFinancialSystemData/OneFinancialSystemData';
 import { Summary } from 'components/atoms/Summary/Summary';

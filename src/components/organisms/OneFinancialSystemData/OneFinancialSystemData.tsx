@@ -10,7 +10,12 @@ import { OpenIban } from "components/atoms/OpenIban/OpenIban";
 import { HiOutlineSwitchVertical } from 'react-icons/hi';
 import { AcceptedDocuments } from "types/AcceptedDocuments";
 
-export const OneFinancialSystemData = ({main, systemNumber}: {main?: boolean, systemNumber: number}) => {
+interface Props {
+  main?: boolean,
+  systemNumber: number,
+}
+
+export const OneFinancialSystemData: React.FunctionComponent<Props> = ({main, systemNumber}): JSX.Element | null=> {
 
   const {
        allBankRecords, 
@@ -27,7 +32,7 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main?: boolean, sy
     forceUpdate();
   }
 
-  const TitleBar = () =>       
+  const TitleBar: React.FunctionComponent = (): JSX.Element =>       
     <div className="componentTitleBar">
       <div className="title">
         <h3>
@@ -55,7 +60,7 @@ export const OneFinancialSystemData = ({main, systemNumber}: {main?: boolean, sy
       </div>
     </div>
 
-  const AllBankDetails = () => 
+  const AllBankDetails: React.FunctionComponent = (): JSX.Element => 
     <>
       {Object.entries(bankRecord)
         .filter(item => item[0] in BankRecordElements)

@@ -23,7 +23,7 @@ interface Props extends CommonProps{
     forceUpdate: () => void,
 }
 
-export const BankDetailsItemTitle = (props: Props) => {
+export const BankDetailsItemTitle: React.FunctionComponent<Props> = (props): JSX.Element => {
     const {
         bankDetailsElementName, 
         bankDetailsElementValue,

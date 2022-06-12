@@ -16,11 +16,13 @@ interface ApiResp {
     }
 }
 
-export const OpenIban = ({iban}: {iban: string}) => {
+type Props = {iban: string}
+
+export const OpenIban: React.FunctionComponent<Props> = ({iban}): JSX.Element => {
+
     const [data, setData] = useState<ApiResp | null>(null);
 
     useEffect(()=>{
-        console.log('check');
         (async (): Promise<void> => {
             try {
                 const res = await fetch(`https://openiban.com/validate/${iban}?getBIC=true&validateBankCode=true`);
@@ -31,9 +33,6 @@ export const OpenIban = ({iban}: {iban: string}) => {
             }
         })()
     }, [iban]);
-
-    console.log(data);
-
 
     if (data) {
         return (

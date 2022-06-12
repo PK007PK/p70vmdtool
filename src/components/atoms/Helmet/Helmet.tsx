@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 
-export const HelmetComp = () => 
+export const HelmetComp: React.FunctionComponent = (): JSX.Element => 
     <Helmet>
         <html lang="en" />
         <title>IBAN defender. FVMD tool</title>

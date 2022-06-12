@@ -6,7 +6,7 @@ import { defElemValue } from "types/defElemValue";
 import { Button } from "../Button/Button";
 import { SummaryStyle } from "./Summary.style";
 
-export const Summary = () => {
+export const Summary: React.FunctionComponent = (): JSX.Element => {
 
     const {
         allBankRecords, 
@@ -71,7 +71,6 @@ export const Summary = () => {
         ${allBankRecords[2].documentType}: ${allBankRecords[2].swift}. ` : ``
 
     const crossSystemReport = report ? `${docAccountCheck}${docIbanCheck}${docSwiftCheck}${crossSystemsBankKeyCheck}${crossSystemsAccountCheck}${crossSystemsIbanCheck}${crossSystemsSwiftCheck}` : "";
-
     const ccProblemReport = ccProblem ? `The bank details have been confirmed in the local system. However, the company code is missing there. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid. Please solve this problem or contact someone who can do it. ` : "";
     const pbProblemReport = pbProblem ? `There is posting block in the local system. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid. Please solve this problem or contact someone who can do it. ` : "";
     const replicationProblemReport = replicationProblem ? `For technical reasons, data replication did not take place. We will analyse the situation and if necessary JIRA will be set up. ` : "";
