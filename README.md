@@ -1,46 +1,22 @@
-# Getting Started with Create React App
+# IBAN Defender
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Front-end application for the FVMD team.
 
-## Available Scripts
+React / TypeScript. Elements of object-oriented programming. CRA. Styled Components.
+GitHub repository: [React documentation](https://github.com/PK007PK/p70vmdtool)
 
-In the project directory, you can run:
+The FVMD teams perform various types of checks on sensitive data. Some of these checks have to be done by the employee by comparing banking data in different financial systems. The employee has to look at the banking data in one system, in another system, on documents provided by the supplier, and determine if they are the same and if they are correct. Doing it right is tiring. It is also easy to make a mistake.
 
-### `npm start`
+My tool is designed to make this process easier. The employee copies data from financial systems into the application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+"CRM paste" button enables copying data from SAP to the application with one click. The application itself from the selected and pasted text will recognize all the important elements: bank key, bank account, IBAN, swift code and will select what it needs.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The application will check if the IBAN structure is correct and it will signal the status with colors. So the employee does not have to analyze the characters, because the correctness of data is signaled by appropriate colors.
 
-### `npm test`
+The application also checks whether the data are the same in different systems and on the document from the supplier and signals this with colors.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+An employee can "listen" to the data copied into the app and compare the data with documents that do not allow copying and pasting data.
 
-### `npm run build`
+The application checks entered IBAN with OpenIban using its API to check if the swift code is correct.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+If errors are detected, automatic messages are generated which can be sent to other employees of the company.
