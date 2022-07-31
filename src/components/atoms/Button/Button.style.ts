@@ -6,15 +6,15 @@ export const ButtonStyle = styled.button<ButtonProps>`
     background: var(--mainTextColor);
     border: none;
     padding: 3px 10px;
-    cursor: pointer;
+    cursor: ${({disabled}) => !disabled && "pointer"};
     font-size: var(--fontSizeSmall);
     line-height: 20px;
     display: inline;
 
     &:hover {
-        background-color: var(--colorOk);
         text-decoration: none;
-        color: var(--mainTextColor);
+        background-color: ${({disabled}) => !disabled && "var(--colorOk)"};
+        color: ${({disabled}) => !disabled && "var(--mainTextColor)"};
     }
 `
 
