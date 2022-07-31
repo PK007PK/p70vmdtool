@@ -1,5 +1,5 @@
 export enum AcceptedDocuments {
     Sap = "SAP",
     Cfin = "CFIN",
-    Document = "Confirmation doc", 
+    Document = "Vendors document", 
 }

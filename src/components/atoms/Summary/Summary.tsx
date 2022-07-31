@@ -24,14 +24,14 @@ export const Summary: React.FunctionComponent = (): JSX.Element => {
     //    Most ugly code ever
     const docAccountCheck = allBankRecords[1].bankAccount !== allBankRecords[0].bankAccount && 
        allBankRecords[1].bankAccount !== defElemValue && allBankRecords[0].bankAccount !== defElemValue ? 
-       `Bank account in ${allBankRecords[0].documentType} is different from bank account in the confirmation document.
+       `Bank account in ${allBankRecords[0].documentType} is different from bank account in the supporting document.
        ${allBankRecords[0].documentType}: ${allBankRecords[0].bankAccount}.
        Document: ${allBankRecords[1].bankAccount}. ` : ``
 
     //    Most ugly code ever
     const docIbanCheck = allBankRecords[1].iban !== allBankRecords[0].iban && 
         allBankRecords[1].iban !== defElemValue && allBankRecords[0].iban !== defElemValue ? 
-        `IBAN in ${allBankRecords[0].documentType} is different from IBAN in the confirmation document.
+        `IBAN in ${allBankRecords[0].documentType} is different from IBAN in the supporting document.
         ${allBankRecords[0].documentType}: ${allBankRecords[0].iban}.
         Document: ${allBankRecords[1].iban}. ` : ``
 
