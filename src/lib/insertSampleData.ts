@@ -1,19 +1,5 @@
+import { sampleRecordError, sampleRecordOk } from "data/sampleData";
 import { BankRecord } from "records/bank.record"
-import { BankRecordElements } from "types/BankRecordElements"
-
-const sampleRecordOk = {
-    [BankRecordElements.bankKey]: "37040044",
-    [BankRecordElements.bankAccount]: "0532013000",
-    [BankRecordElements.iban]: "DE89370400440532013000",
-    [BankRecordElements.swift]: "COBADEFF3701",
-}
-
-const sampleRecordError = {
-    [BankRecordElements.bankKey]: "37041044",
-    [BankRecordElements.bankAccount]: "0532013200",
-    [BankRecordElements.iban]: "DE89370410440532013020",
-    [BankRecordElements.swift]: "COBA1EFF3701",
-}
 
 type AcceptedArg = "ok" | "err"
 
