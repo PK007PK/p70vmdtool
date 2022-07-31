@@ -16,7 +16,9 @@ interface ApiResp {
     }
 }
 
-type Props = {iban: string}
+interface Props {
+    iban: string
+}
 
 export const OpenIban: React.FunctionComponent<Props> = ({iban}): JSX.Element => {
 
