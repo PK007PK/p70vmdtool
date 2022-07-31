@@ -56,7 +56,7 @@ export const OneFinancialSystemData: React.FunctionComponent<Props> = ({main, sy
             OCR paste
           </Button>
         }
-        <Button className="hideButton" onClick={()=>setIsVisible(false)}>X</Button>
+        {!main && <Button className="hideButton" onClick={()=>setIsVisible(false)}>X</Button>}
       </div>
     </div>
 
