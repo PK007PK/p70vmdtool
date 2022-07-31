@@ -37,7 +37,7 @@ export const TranfsormStringIntoBoxes: React.FunctionComponent<Props> = (props):
                     bankAccountElement={bankDetailsElementName === "bankAccount"}
                     isBankKey={bankDetailsElementName==="iban" && i >= bankKeyStart && i <= bankKeyEnd} 
                     isBankAccount={bankDetailsElementName==="iban" && i >= bankAccountStart && i <= bankAccountEnd}
-                    iSNotTheSame={
+                    isTheSame={
                         bankRecord[bankDetailsElementName as keyof object][i] === allBankRecords[0][bankDetailsElementName as keyof object][i] || 
                         bankRecord[bankDetailsElementName as keyof object][i] === defElemValue
                     }
