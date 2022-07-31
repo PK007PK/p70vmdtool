@@ -11,27 +11,27 @@ export interface ButtonProps extends CommonProps{
 
 export const Button: React.FunctionComponent<ButtonProps> = (props): JSX.Element => {
     const {
-        style, 
-        className, 
-        onClick, 
-        children, 
         absolute, 
         as, 
+        className, 
+        children, 
         href, 
+        onClick, 
+        style, 
         target,
         title,
     } = props
     
     return (
         <ButtonStyle
-            target={target}
-            href={href}
-            as={as}
-            style={style} 
-            className={className}
             absolute={absolute} 
-            title={title}
+            as={as}
+            className={className}
+            href={href}
             onClick={onClick}
+            style={style} 
+            target={target}
+            title={title}
         >
             {children}
         </ButtonStyle>
