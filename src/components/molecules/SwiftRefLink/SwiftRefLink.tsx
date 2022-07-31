@@ -1,6 +1,9 @@
-import { AppContext } from "AppContext";
-import { Button } from "components/atoms/Button/Button";
 import { useContext} from "react";
+
+import { AppContext } from "AppContext";
+
+import { Button } from "components";
+
 import { CommonProps } from "types/CommonProps";
 import { defElemValue } from "types/defElemValue";
 

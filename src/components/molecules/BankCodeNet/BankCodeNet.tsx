@@ -1,8 +1,10 @@
 import { AppContext } from "AppContext";
-import { Button } from "components/atoms/Button/Button";
+
 import { useContext} from "react";
 import { CommonProps } from "types/CommonProps";
 import { defElemValue } from "types/defElemValue";
+
+import { Button } from "components";
 
 export const BankCodeNet: React.FunctionComponent<CommonProps> = ({className}): JSX.Element | null => {
     const {

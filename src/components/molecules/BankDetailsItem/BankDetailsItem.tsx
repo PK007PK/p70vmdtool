@@ -1,12 +1,16 @@
-import { AppContext } from "AppContext";
-import { IbanStatus } from "components/atoms/IbanStatus/IbanStatus";
-import { TranfsormStringIntoBoxes } from "components/atoms/TranfsormStringIntoBoxes/TranfsormStringIntoBoxes";
 import { useContext } from "react";
-import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
-import { BankDetailsItemTitle } from "../BankDetailsItemTitle/BankDetailsItemTitle";
-import { defElemValue } from "types/defElemValue";
+
+import { AppContext } from "AppContext";
 import { BankRecord } from "records/bank.record";
+
+import { IbanStatus } from "components";
+import { TranfsormStringIntoBoxes } from "components";
+import { BankDetailsItemTitle } from "components";
+
+import { defElemValue } from "types/defElemValue";
 import { AcceptedDocuments } from "types/AcceptedDocuments";
+
+import { BankDetailsItemStyle } from "./BankDetailsItem.styles";
 
 interface Props {
     bankRecord: BankRecord,

@@ -1,17 +1,22 @@
+import { AiFillSound } from "react-icons/ai"
+import { MdOutlineContentCopy, MdOutlineGppGood } from "react-icons/md"
+
+import { BankRecord } from "records/bank.record"
+
+import { BankCodeNet } from "components";
+import { BankCodesLink } from "components";
+import { SwiftRefLink } from "components";
+
 import { copyFromMainFinSystem } from "lib/copyFromMainFinSystem"
 import { copyToClipboard } from "lib/copyToClipboard"
 import { delDash } from "lib/delDash"
 import { elementToTitle } from "lib/elementToTitle"
 import { readAloud } from "lib/readAloud"
-import { AiFillSound } from "react-icons/ai"
-import { MdOutlineContentCopy, MdOutlineGppGood } from "react-icons/md"
-import { BankRecord } from "records/bank.record"
+
 import { BankRecordElements } from "types/BankRecordElements"
 import { CommonProps } from "types/CommonProps"
 import { defElemValue } from "types/defElemValue"
-import { BankCodeNet } from "../BankCodeNet/BankCodeNet"
-import { BankCodesLink } from "../BankCodesLink/BankCodesLink"
-import { SwiftRefLink } from "../SwiftRefLink/SwiftRefLink"
+
 import { BankDetailsItemStyle } from "./BankDetailsItemTitleStyle"
 
 interface Props extends CommonProps{

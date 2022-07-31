@@ -1,14 +1,19 @@
 import { useContext, useMemo, useState } from "react";
-import { AppContext } from "AppContext";
-import { BankRecordElements } from "types/BankRecordElements";
-import { BankDetailsItem } from "components/molecules/BankDetailsItem/BankDetailsItem";
-import { pasteOneString } from "lib/pasteOneString";
-import { Button } from "components/atoms/Button/Button";
-import { OneFinancialSystemDataStyle } from "./OneFinancialSystemData.style";
-import { pasteAll } from "lib/pasteAll";
-import { OpenIban } from "components/atoms/OpenIban/OpenIban";
 import { HiOutlineSwitchVertical } from 'react-icons/hi';
+
+import { AppContext } from "AppContext";
+
+import { BankDetailsItem } from "components";
+import { Button } from "components";
+import { OpenIban } from "components";
+
+import { pasteOneString } from "lib/pasteOneString";
+import { pasteAll } from "lib/pasteAll";
+
+import { BankRecordElements } from "types/BankRecordElements";
 import { AcceptedDocuments } from "types/AcceptedDocuments";
+
+import { OneFinancialSystemDataStyle } from "./OneFinancialSystemData.style";
 
 interface Props {
   main?: boolean,
