@@ -7,6 +7,7 @@ export interface ButtonProps extends CommonProps{
     href?: string,
     target?: string,
     title?: string,
+    disabled?: boolean,
 }
 
 export const Button: React.FunctionComponent<ButtonProps> = (props): JSX.Element => {
@@ -15,6 +16,7 @@ export const Button: React.FunctionComponent<ButtonProps> = (props): JSX.Element
         as, 
         className, 
         children, 
+        disabled,
         href, 
         onClick, 
         style, 
@@ -32,6 +34,7 @@ export const Button: React.FunctionComponent<ButtonProps> = (props): JSX.Element
             style={style} 
             target={target}
             title={title}
+            disabled={disabled}
         >
             {children}
         </ButtonStyle>

@@ -12,16 +12,15 @@ export const Summary: React.FunctionComponent = (): JSX.Element => {
         allBankRecords, 
        } = useContext(AppContext);
 
-    const [report, setReport ] = useState<boolean>(false)
+    const [report, setReport] = useState<boolean>(false)
     const reportToogle = () => setReport(prev => !prev);
-    const [ccProblem, setCCProblem ] = useState<boolean>(false)
+    const [ccProblem, setCCProblem] = useState<boolean>(false)
     const ccProblemToogle = () => setCCProblem(prev => !prev);
-    const [pbProblem, setPbProblem ] = useState<boolean>(false)
+    const [pbProblem, setPbProblem] = useState<boolean>(false)
     const pbProblemToogle = () => setPbProblem(prev => !prev);
     const [replicationProblem, setReplicationProblem ] = useState<boolean>(false)
     const replicationProblemToogle = () => setReplicationProblem(prev => !prev);
     
-
     //    Most ugly code ever
     const docAccountCheck = allBankRecords[1].bankAccount !== allBankRecords[0].bankAccount && 
        allBankRecords[1].bankAccount !== defElemValue && allBankRecords[0].bankAccount !== defElemValue ? 
@@ -75,11 +74,12 @@ export const Summary: React.FunctionComponent = (): JSX.Element => {
     const pbProblemReport = pbProblem ? `There is posting block in the local system. Therefore, it is currently not possible to replicate the data to CFIN. Until this problem is corrected, the supplier cannot be paid. Please solve this problem or contact someone who can do it. ` : "";
     const replicationProblemReport = replicationProblem ? `For technical reasons, data replication did not take place. We will analyse the situation and if necessary JIRA will be set up. ` : "";
 
+    const defaultComment = `Choose options to generate report`
     let errorReport = `${ccProblemReport}${pbProblemReport}${replicationProblemReport}${crossSystemReport}`
     if (errorReport !=="") {
         errorReport = `Dear team. ${errorReport} Kind regards`
     } else {
-        errorReport = `Choose options to generate report`
+        errorReport = defaultComment
     }
 
     return (
@@ -89,6 +89,7 @@ export const Summary: React.FunctionComponent = (): JSX.Element => {
                 <Button 
                     title="Copy Report to clipboard" 
                     onClick={()=>copyToClipboard(errorReport)}
+                    disabled={errorReport === defaultComment ? true : false}
                 >
                     <MdOutlineContentCopy />
                 </Button>
