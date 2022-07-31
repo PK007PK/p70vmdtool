@@ -38,8 +38,8 @@ export const BankDetailsItemTitle: React.FunctionComponent<Props> = (props): JSX
         <BankDetailsItemStyle className={className}>
             <h3 className="title">{elementToTitle(bankDetailsElementName)}</h3>
             <div className="buttonBar">
-                {bankDetailsElementName === BankRecordElements.bankAccount &&
-                    <button 
+                {bankDetailsElementName === BankRecordElements.bankAccount && bankDetailsElementValue !== defElemValue &&
+                    <button
                         onClick={()=>delDash(currentRecord, forceUpdate)}
                         title="Delete dash"
                         className="smallButton"
