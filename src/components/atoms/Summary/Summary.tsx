@@ -85,7 +85,7 @@ export const Summary: React.FunctionComponent = (): JSX.Element => {
     return (
         <SummaryStyle>
             <div className="titleBar">
-                <h3 className="title">Errors detected:</h3>
+                <h3 className="title">Generate comments:</h3>
                 <Button 
                     title="Copy Report to clipboard" 
                     onClick={()=>copyToClipboard(errorReport)}
@@ -95,13 +95,13 @@ export const Summary: React.FunctionComponent = (): JSX.Element => {
             </div>
             <form>
                 <label>
-                    <input type="checkbox" checked={report} onChange={reportToogle} /> Compare bank details in systems
+                    <input type="checkbox" checked={report} onChange={reportToogle} /> Data comparison
                 </label><br/>
                 <label>
-                    <input type="checkbox" checked={ccProblem} onChange={ccProblemToogle} /> Lack of cc
+                    <input type="checkbox" checked={ccProblem} onChange={ccProblemToogle} /> Lack of cc problem
                 </label><br/>
                 <label>
-                    <input type="checkbox" checked={pbProblem} onChange={pbProblemToogle} /> Posting block
+                    <input type="checkbox" checked={pbProblem} onChange={pbProblemToogle} /> Posting block problem
                 </label><br/>
                 <label>
                     <input type="checkbox" checked={replicationProblem} onChange={replicationProblemToogle} /> Lack of replication due to technical reasons
