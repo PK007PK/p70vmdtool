@@ -34,6 +34,8 @@ Aplikacja przystosowana jest do pracy z SAP, zarówno w wersji desktopowej, jak 
 
 Aplikacja jest użyteczna wyłącznie na dużych ekranach. Optymalne jest 27 cali i następujący układ okienek na ekranie:
 
+Dane bankowe wykorzystane na screenach są oczywiście fejkowe.
+
 ![ScreenShot](/readme-images/z10.jpg?raw=true)
 
 Aplikacja ma charakter frontendowy. Dane do aplikacji wprowadzane są poprzez skopiowanie ich z systemu finansowego lub dokumentu dostarczonego przez dostawcę i skopiowanie ich do aplikacji poprzez kliknięcie odpowiednich buttonów. Dlatego też przy pierwszym skorzystaniu z aplikacji konieczne jest zaakceptowanie dostępu przeglądarki do clipboardu.
