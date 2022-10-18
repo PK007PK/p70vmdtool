@@ -35,8 +35,10 @@ export const pasteAll = (record: BankRecord, updateFunction: Function) => {
             for (let i = 0; i < cleanedTextInTable.length; i++) {
                 if (element === "IBAN" && element !== cleanedTextInTable[i + 1] && element === cleanedTextInTable[i]) {
                     ValuesFound[element] = cleanedTextInTable[i + 1];
+                } else if (element === "Key" && cleanedTextInTable[i - 1] === "Control") {
+
                 } else if (element === cleanedTextInTable[i]) {
-                    ValuesFound[element as ValuesFoundKey] = cleanedTextInTable[i + 1];
+                  ValuesFound[element as ValuesFoundKey] = cleanedTextInTable[i + 1];
                 }
             }
         }
