@@ -2,9 +2,9 @@ import { BankRecord } from "records/bank.record";
 import { BankRecordElements } from 'types/BankRecordElements';
 
 interface ValuesFoundEntity {
-  "Bank Key": string,
+  Key: string,
   "SWIFT/BIC": string, 
-  "Bank Account": string,
+  Account: string,
   IBAN: string,
 }
 
@@ -25,9 +25,9 @@ export const pasteAll = (record: BankRecord, updateFunction: Function) => {
           .filter(i => i !== "");
 
         const ValuesFound: ValuesFoundEntity = {
-          "Bank Key": "", 
+          Key: "", 
           "SWIFT/BIC": "", 
-          "Bank Account": "", 
+          Account: "", 
           IBAN: "",
         };
 
@@ -41,14 +41,14 @@ export const pasteAll = (record: BankRecord, updateFunction: Function) => {
             }
         }
 
-        if (ValuesFound["Bank Key"]) {
-          record.insert(BankRecordElements.bankKey, ValuesFound["Bank Key"])
+        if (ValuesFound.Key) {
+          record.insert(BankRecordElements.bankKey, ValuesFound.Key)
         };
         if (ValuesFound["SWIFT/BIC"]) {
           record.insert(BankRecordElements.swift, ValuesFound["SWIFT/BIC"])
         }
-        if (ValuesFound["Bank Account"]) {
-          record.insert(BankRecordElements.bankAccount, ValuesFound["Bank Account"])
+        if (ValuesFound["Account"]) {
+          record.insert(BankRecordElements.bankAccount, ValuesFound["Account"])
         }
         if (ValuesFound["IBAN"]) {
           record.insert(BankRecordElements.iban, ValuesFound["IBAN"])
