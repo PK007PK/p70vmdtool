@@ -1,11 +1,10 @@
-import { useContext, useMemo, useState } from "react";
+import { useContext, useState } from "react";
 import { HiOutlineSwitchVertical } from "react-icons/hi";
 
 import { AppContext } from "AppContext";
 
 import { BankDetailsItem } from "components";
 import { Button } from "components";
-import { OpenIban } from "components";
 
 import { pasteOneString } from "lib/pasteOneString";
 import { pasteAll } from "lib/pasteAll";
